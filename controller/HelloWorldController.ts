@@ -12,8 +12,6 @@ module.exports = function(app: Application) {
         try {
             data = await helloWorldService.getHelloWorld();
 
-            console.log(data);
-
         } catch(e) {
             console.error(e);
         }
