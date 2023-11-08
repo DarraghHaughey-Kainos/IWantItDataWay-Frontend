@@ -1,26 +1,26 @@
-{% include "../templates/header.html%}
-<body>
-    <main class="container mt-4">
-        <section id="helloWorld" class="mt-4">
-            <h2>Hello World List</h2>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for hello in helloWorld %}
-                    <tr>
-                        <td>{{ hello.id }}</td>
-                        <td>{{ hello.name }}</td>
-                    </tr>
-                    {% endfor %}
+{% extends "_includes/layouts/base.html" %}
+{% block content %}
+<main class="container mt-4">
+    <section id="helloWorld" class="mt-4">
+        <h2>Hello World List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hello in helloWorld %}
+                <tr>
+                    <td>{{ hello.id }}</td>
+                    <td>{{ hello.name }}</td>
+                </tr>
+                {% endfor %}
 
-                </tbody>
-            </table>
+            </tbody>
+        </table>
 
-        </section>
-    </main>
-</body>
+    </section>
+</main>
+{% endblock %}

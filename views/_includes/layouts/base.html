@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+
+<body>
+    <header class="navbar-light bg-light">
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                        <img src="/images/KainosLogo.png" width="150" height="50" alt="logo">
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer>
+        <div>
+            Contact Information:
+        </div>
+        <div>
+            Email: email@email.com
+        </div>
+        <div>
+            Phone: (028)123 456 789
+        </div>
+    </footer>
+
+</body>
+
+</html>
