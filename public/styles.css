@@ -3,11 +3,13 @@ body {
 }
 
 footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(0, 70, 49);
+    background: radial-gradient(circle, rgb(0, 70, 49), rgb(65, 103, 159));
     color: white;
     text-align: center;
   }
