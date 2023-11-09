@@ -1,5 +1,5 @@
 body {
-    font-family: Century Gothic, sans-serif !important;
+    font-family: Century Gothic, sans-serif;
 }
 
 footer {
@@ -9,7 +9,22 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: radial-gradient(circle, rgb(0, 70, 49), rgb(65, 103, 159));
-    color: white;
+    /* background: radial-gradient(circle, rgb(40, 53, 131), rgb(0, 70, 49)); */
+    color: black;
     text-align: center;
+    font-size: large;
   }
+
+  footer a {
+    text-decoration: none;
+    color: black;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  .navbar-nav a:hover{
+    text-decoration: underline;
+  }
+  

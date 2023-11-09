@@ -7,7 +7,7 @@ module.exports = function(app: Application) {
 
     app.get('/', async (req:Request, res: Response) => {
         
-        res.render('Home');
+        res.render('Home', {title: "Home"});
 
     })
 
@@ -22,7 +22,7 @@ module.exports = function(app: Application) {
             console.error(e);
         }
 
-        res.render('HelloWorld', { helloWorld: data });
+        res.render('HelloWorld', { helloWorld: data, title: "Hello World" });
     })
 
 }

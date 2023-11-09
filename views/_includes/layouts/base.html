@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>{{title}}</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/styles.css">
@@ -16,7 +16,7 @@
             <div class="row">
                 <nav class="navbar navbar-expand-lg">
                     <a class="navbar-brand" href="/">
-                        <img src="/images/KainosLogo.png" width="150" height="50" alt="logo">
+                        <img src="/images/KainosLogo.png" width="150" height="50" alt="Kainos Logo">
                     </a>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
@@ -32,15 +32,23 @@
 
     {% endblock %}
 
-    <footer>
+    <footer class="bg-light">
         <div>
             Contact Information:
         </div>
         <div>
-            Email: email@email.com
+            Address:
         </div>
         <div>
-            Phone: (028)123 456 789
+            4-6 Upper Cres,
+            Belfast,
+            BT7 1NT
+        </div>
+        <div>
+            Email: <a href="mailto:email@kainos.com">email@kainos.com</a>
+        </div>
+        <div>
+            Phone: <a href="tel:02890571100">(028)90 571 110</a> 
         </div>
     </footer>
 
