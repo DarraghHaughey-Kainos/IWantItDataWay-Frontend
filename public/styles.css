@@ -9,7 +9,6 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    /* background: radial-gradient(circle, rgb(40, 53, 131), rgb(0, 70, 49)); */
     color: black;
     text-align: center;
     font-size: large;
@@ -26,5 +25,14 @@ footer {
 
   .navbar-nav a:hover{
     text-decoration: underline;
+  }
+
+  li a{
+    color: black;
+  }
+
+  li a:hover{
+    text-decoration: underline;
+    color: black;
   }
   
