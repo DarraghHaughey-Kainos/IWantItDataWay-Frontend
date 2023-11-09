@@ -1,4 +1,6 @@
 # IWantItDataWay-Frontend
+Ensure API is running on port 8080.
+
 FOR MAC:
 Set the enivronment variable for the API_BASE_URL:
 export API_BASE_URL="http://localhost:8080/api"
