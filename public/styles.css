@@ -21,6 +21,7 @@ footer {
 
   footer a:hover {
     text-decoration: underline;
+    color: black;
   }
 
   .navbar-nav a:hover{
