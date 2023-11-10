@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "npx tsc && cp -R views dist && node dist/app.js",
+    "start": "npx tsc && cp -R views dist && cp -R public dist && cp -R images dist && node dist/app.js",
+    "start-win": "npx tsc && copy -R views dist && copy -R public dist && copy -R images dist && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

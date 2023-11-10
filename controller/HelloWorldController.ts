@@ -5,6 +5,12 @@ const helloWorldService = require('../service/HelloWorldService');
 
 module.exports = function(app: Application) {
 
+    app.get('/', async (req:Request, res: Response) => {
+        
+        res.render('Home', {title: "Home"});
+
+    })
+
     app.get('/hello-world', async (req: Request, res: Response) => {
 
         let data: helloWorld[] = [];
@@ -16,7 +22,7 @@ module.exports = function(app: Application) {
             console.error(e);
         }
 
-        res.render('HelloWorld', { helloWorld: data });
+        res.render('HelloWorld', { helloWorld: data, title: "Hello World" });
     })
 
 }
