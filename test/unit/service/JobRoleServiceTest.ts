@@ -40,7 +40,6 @@ describe('JobRoleService', function () {
         var mock = new MockAdapter(axios);        
 
         mock.onGet(jobRoleService.API_URL).reply(500);
-
         var error;
 
         try{
