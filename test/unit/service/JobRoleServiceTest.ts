@@ -5,8 +5,12 @@ var axios = require('axios');
 var MockAdapter = require('axios-mock-adapter');
 var chai = require('chai');  
 const expect = chai.expect;
-
-const jobRole = new JobRole(1,"Engineer")
+const jobRole: JobRole[] = [
+    {
+        id: 1,
+        jobRoleTitle: 'Engineer',
+    }
+];
 
 /* 
 ui test for the getJobRoles method 
@@ -18,42 +22,34 @@ const jobRoleService: JobRoleService = new JobRoleService();
 describe('JobRoleService', function () {
     describe('getJobRoles', function () {
         it('should return job roles from response', async () => {
-            var mock = new MockAdapter(axios);
+            const mock = new MockAdapter(axios);
     
-            const data: JobRole[] = [jobRole];
-
-            console.log(jobRoleService.URL)
+            mock.onGet(jobRoleService.API_URL).reply(200, jobRole);
     
-            mock.onGet(jobRoleService.URL).reply(200, data);
+            const results: JobRole[] = await jobRoleService.getJobRoles();
     
-            var results = await jobRoleService.getJobRoles();
-
-            console.log(results);
-            
-    
-            expect(results[0]).to.deep.equal(jobRole)
-          })
-
-    })
+            expect(results).to.deep.equal(jobRole)
+          });
+    });
 
     /*
-    should throw expception when 500 error returned from axios
+    expect throw expception with a message when a 500 error is returned from axios
     */
 
-    // it('should throw expception when 500 error returned from axios', async () => {
-    //     var mock = new MockAdapter(axios);        
+    it('should throw expception when 500 error returned from axios', async () => {
+        var mock = new MockAdapter(axios);        
 
-    //     mock.onGet(JobRoleService.URL).reply(200);
+        mock.onGet(jobRoleService.API_URL).reply(500);
 
-    //     var error;
+        var error;
 
-    //     try{
-    //         await JobRoleService.getJobRoles()
-    //     }catch (e){
-    //         var error = e.message
-    //     }
+        try{
+            await jobRoleService.getJobRoles()
+        }catch (e){
+            var error = e.message
+        }
 
-    //     expect(error).to.equal('Could not get Job Roles')
-    //   })
+        expect(error).to.equal('Could not get Job Roles')
+      })
 
 })
