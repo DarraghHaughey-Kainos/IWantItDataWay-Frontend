@@ -1,12 +1,12 @@
-FROM node:14.19.0
+FROM node:14
 
-WORKDIR /dist
+WORKDIR /app
 
 COPY package*.json ./
 
-ARG API_URL
+ARG API_BASE_URL
 
-ENV API_URL ${API_URL}
+ENV API_BASE_URL ${API_BASE_URL}
 
 RUN npm ci
 
