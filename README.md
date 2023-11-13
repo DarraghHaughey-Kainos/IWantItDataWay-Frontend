@@ -12,7 +12,9 @@ Run `npm start` to start frontend application.
 RUNNING ON WINDOWS:
 ---
 Set the environment variable for the API_BASE_URL:
+
 `New-Item -Path Env:API_BASE_URL -Value http://localhost:8080/api`
+
 Run `npm run start-win` to start frontend application.
 
 If `npm run start-win` does not work, run each of these commands separately
