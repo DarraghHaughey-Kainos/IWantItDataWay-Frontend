@@ -7,6 +7,7 @@
     <title>{{title}}</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/public/styles.css">
 </head>
 
@@ -19,8 +20,22 @@
                         <img src="/images/KainosLogo.png" width="150" height="50" alt="Kainos Logo">
                     </a>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link 1</a>
+                            </li>
+                            <!-- Each item to be added list item here -->
+                        </ul>
+                        <div class="right-aligned">
+                            {% if (sessionValid) %}
+                            <a class="btn btn-outline-success me-2" href="/logout">
+                                <i class="bi bi-box-arrow-right"></i>
+                            </a>
+                            {% else %}
+                            <a class="btn btn-outline-secondary me-2" href="/login">
+                                <i class="bi bi-person-fill"></i>
+                            </a>
+                            {% endif %}
                         </div>
                     </div>
                 </nav>
@@ -37,7 +52,7 @@
             Contact Information:
         </div>
         <div>
-            Address: 
+            Address:
             4-6 Upper Cres,
             Belfast,
             BT7 1NT
@@ -46,7 +61,7 @@
             Email: <a href="mailto:email@kainos.com">email@kainos.com</a>
         </div>
         <div>
-            Phone: <a href="tel:02890571100">(028)90 571 110</a> 
+            Phone: <a href="tel:02890571100">(028)90 571 110</a>
         </div>
     </footer>
 
