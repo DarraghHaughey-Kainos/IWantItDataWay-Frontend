@@ -1,6 +1,8 @@
 # IWantItDataWay-Frontend
 Ensure API is running on port 8080.
 
+After cloning from GitHub, run `npm install` to install packages.
+
 RUNNING ON MAC:
 ---
 Set the enivronment variable for the API_BASE_URL:
@@ -32,8 +34,7 @@ node dist/app.js
 
 Once the frontend is running, open `http://localhost:3000` in your browser.
 
-TESTING ON MAC
+RUNNING UNIT TESTS
 ---
 
-TESTING ON WINDOWS
----
+Run `npm test`.
