@@ -1,23 +1,19 @@
 import { API_BASE_URL } from '../config';
 
-const axios = require("axios")
+const axios = require('axios');
 
 export class HelloWorldService {
 
-    async getHelloWorld(token: String) {
+    async getHelloWorld(token: string) {
         try { 
-            const apiEndPoint: String = `${API_BASE_URL}/hello-world`;
-            const params = { token: token }
-            const response = await axios.get(apiEndPoint, { 
-                headers: {
-                    'Authorization': token
-                }
-             });
+            const apiEndPoint: string = `${API_BASE_URL}/hello-world`;
+            const headers = { 'Authorization': token };
+            const response = await axios.get(apiEndPoint, { headers });
     
             return response.data;
         }catch(e) {
-            console.error(e.response.data)
+            console.error(e.response.data);
             throw new Error('Could not get Hello World');
         }
     }
-};
+}

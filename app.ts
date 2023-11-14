@@ -5,7 +5,7 @@ import { Request, Response, NextFunction } from 'express';
 import session = require('express-session');
 
 const app = express();
-const authMiddleware = require('./middleware/auth')
+const authMiddleware = require('./middleware/auth');
 
 //configure Nunjucks
 const appViews = path.join(__dirname, '/views');
@@ -33,7 +33,7 @@ app.use(session({
     cookie: {maxAge: 600000}
 }));
 
-declare module "express-session"{
+declare module 'express-session'{
     interface SessionData{
         token: string;
    }
@@ -50,10 +50,10 @@ app.use((req: Request, res: Response, next: NextFunction) => {
         res.locals.sessionValid = false;
     }
     next();
-}) 
+});
 
 require('./controller/HomeController')(app);
 require('./controller/AuthController')(app);
 
-app.use(authMiddleware)
+app.use(authMiddleware);
 require('./controller/HelloWorldController')(app);

@@ -1,6 +1,6 @@
-import { Application, Request, Response } from "express";
-import { helloWorld } from "../model/HelloWorld";
-import { HelloWorldService } from "../service/HelloWorldService";
+import { Application, Request, Response } from 'express';
+import { helloWorld } from '../model/HelloWorld';
+import { HelloWorldService } from '../service/HelloWorldService';
 
 const helloWorldService = new HelloWorldService();
 
@@ -17,7 +17,7 @@ module.exports = function(app: Application) {
             console.error(e);
         }
 
-        res.render('hello-world', { helloWorld: data, title: "Hello World" });
-    })
+        res.render('hello-world', { helloWorld: data, title: 'Hello World' });
+    });
 
 };
