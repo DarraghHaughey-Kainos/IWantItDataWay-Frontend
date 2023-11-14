@@ -6,8 +6,14 @@
   "scripts": {
     "start": "npx tsc && cp -R views dist && cp -R public dist && cp -R images dist && node dist/app.js",
     "start-win": "npx tsc && copy -R views dist && copy -R public dist && copy -R images dist && node dist/app.js",
+<<<<<<< HEAD
     "test": "npx tsc && cp -R views dist && mocha dist/test/unit/**/*.js",
     "test-ui": "mocha --timeout 10000 test/ui/**/*.js"
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint .",
+    "lint-fix": "npx eslint . --fix"
+>>>>>>> main
   },
   "repository": {
     "type": "git",
@@ -28,9 +34,15 @@
     "@types/express": "^4.17.21",
     "@types/mocha": "^10.0.4",
     "@types/node": "^20.8.10",
+<<<<<<< HEAD
     "axios-mock-adapter": "^1.22.0",
     "chai": "^4.3.10",
     "mocha": "^10.2.0",
+=======
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
+    "eslint": "^8.53.0",
+>>>>>>> main
     "typescript": "^5.2.2"
   }
 }

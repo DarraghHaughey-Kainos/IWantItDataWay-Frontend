@@ -1,5 +1,5 @@
-import { Application, Request, Response } from "express";
-import { helloWorld } from "../model/HelloWorld";
+import { Application, Request, Response } from 'express';
+import { helloWorld } from '../model/HelloWorld';
 const helloWorldService = require('../service/HelloWorldService');
 
 

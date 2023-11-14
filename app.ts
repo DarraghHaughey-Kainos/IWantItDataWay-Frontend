@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.listen(3000, () => { 
-    console.log('Server listening on port 3000')
+    console.log('Server listening on port 3000');
 });
 
 require('./controller/HelloWorldController')(app)
