@@ -1,4 +1,5 @@
-# IWantItDataWay-Frontend
+I Want It Data Way Frontend
+---
 Ensure API is running on port 8080.
 
 After cloning from GitHub, run `npm install` to install packages.
