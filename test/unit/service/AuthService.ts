@@ -2,9 +2,9 @@ import { Login } from "../../../model/Login";
 import { AuthService } from "../../../service/AuthService";
 import { API_BASE_URL } from "../../../config";
 
-var axios = require('axios');
-var MockAdapter = require('axios-mock-adapter');
-var chai = require('chai');  
+const axios = require('axios');
+const MockAdapter = require('axios-mock-adapter');
+const chai = require('chai');  
 const expect = chai.expect;
 const token = "test_token_value"
 const login: Login = {
@@ -31,12 +31,12 @@ describe('AuthService', function() {
             const mock = new MockAdapter(axios);
 
             mock.onPost(`${API_BASE_URL}/login`, login).reply(500)
-            var error;
+            let error;
     
             try{
                 await authService.login(login)
             }catch(e) {
-                var error = e.message
+                error = e.message
             }
     
             expect(error).to.equal("Could not login")
@@ -56,12 +56,12 @@ describe('AuthService', function() {
             const mock = new MockAdapter(axios);
 
             mock.onPost(`${API_BASE_URL}/register`, login).reply(500)
-            var error;
+            let error;
     
             try{
                 await authService.register(login)
             }catch(e) {
-                var error = e.message
+                error = e.message
             }
     
             expect(error).to.equal("Could not register")
