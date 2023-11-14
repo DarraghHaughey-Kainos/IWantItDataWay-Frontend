@@ -30,6 +30,7 @@ app.listen(3000, () => {
     console.log('Server listening on port 3000')
 });
 
-require('./controller/HelloWorldController')(app);
+require('./controller/HelloWorldController')(app)
+require('./controller/HomeController')(app)
 require('./controller/JobRoleController')(app);
 

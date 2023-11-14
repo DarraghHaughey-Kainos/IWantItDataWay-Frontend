@@ -1,9 +1,9 @@
 import { JobRole } from "../../../model/JobRole";
 import { JobRoleService } from "../../../service/JobRoleService";
 
-var axios = require('axios');
-var MockAdapter = require('axios-mock-adapter');
-var chai = require('chai');  
+const axios = require('axios');
+const MockAdapter = require('axios-mock-adapter');
+const chai = require('chai');  
 const expect = chai.expect;
 const jobRole: JobRole[] = [
     {
@@ -37,15 +37,15 @@ describe('JobRoleService', function () {
     */
 
     it('should throw expception when 500 error returned from axios', async () => {
-        var mock = new MockAdapter(axios);        
+        const mock = new MockAdapter(axios);        
 
         mock.onGet(jobRoleService.API_URL).reply(500);
-        var error;
+        let error;
 
         try{
             await jobRoleService.getJobRoles()
         }catch (e){
-            var error = e.message
+             error = e.message
         }
 
         expect(error).to.equal('Could not get Job Roles')

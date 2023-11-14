@@ -1,11 +1,16 @@
 body {
     font-family: Century Gothic, sans-serif;
+    min-height: 100%;
+}
+
+main {
+  min-height: 100vh;
 }
 
 footer {
     padding-top: 10px;
     padding-bottom: 10px;
-    position:relative;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -36,4 +41,6 @@ footer {
     text-decoration: underline;
     color: black;
   }
+
+
   
