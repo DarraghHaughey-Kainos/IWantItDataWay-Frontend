@@ -19,7 +19,7 @@ module.exports = function(app: Application) {
             res.redirect("/");
         } catch(e) {
             res.locals.errormessage = e.message;
-
+            req.body.password = ""
             res.render("login", req.body)
         }
     })
@@ -39,7 +39,7 @@ module.exports = function(app: Application) {
             res.redirect("/");
         } catch(e) {
             res.locals.errormessage = e.message;
-
+            req.body.password = ""
             res.render("login", req.body)
         }
     })
