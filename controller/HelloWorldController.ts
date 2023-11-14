@@ -17,7 +17,7 @@ module.exports = function(app: Application) {
             console.error(e);
         }
 
-        res.render('HelloWorld', { helloWorld: data, title: "Hello World" });
+        res.render('hello-world', { helloWorld: data, title: "Hello World" });
     })
 
 }

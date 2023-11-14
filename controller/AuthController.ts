@@ -7,7 +7,7 @@ const authService = new AuthService();
 module.exports = function(app: Application) {
 
     app.get('/login', async (req: Request, res: Response) => {
-        res.render('Login', {title: "Login"});
+        res.render('login', {title: "Login"});
     })
 
     app.post('/login', async (req: Request, res: Response) => {
@@ -26,7 +26,7 @@ module.exports = function(app: Application) {
 
     app.get('/register', async (req: Request, res: Response) => {
         
-        res.render('Register', {title: "Register"});
+        res.render('register', {title: "Register"});
     })
 
 

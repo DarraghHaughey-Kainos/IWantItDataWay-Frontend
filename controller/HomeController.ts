@@ -5,7 +5,7 @@ module.exports = function(app: Application) {
 
     app.get('/', async (req: Request, res: Response) => {
 
-        res.render('Home', {title: "Home"});
+        res.render('home', {title: "Home"});
     })
 
 }

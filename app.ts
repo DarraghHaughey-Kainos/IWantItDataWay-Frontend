@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-    secret: 'NOT HARDCODED SECRET', 
+    secret: process.env.EXPRESS_SECRET, 
     cookie: {maxAge: 600000}
 }));
 
