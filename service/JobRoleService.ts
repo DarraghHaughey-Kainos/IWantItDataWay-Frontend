@@ -1,6 +1,6 @@
-import { JobRole } from "../model/JobRole";
-import { API_BASE_URL } from "../config";
-const axios = require("axios");
+import { JobRole } from '../model/JobRole';
+import { API_BASE_URL } from '../config';
+const axios = require('axios');
 
 
     export class JobRoleService {
@@ -9,7 +9,7 @@ const axios = require("axios");
 
             try {                
                 const response = await axios.get(this.API_URL);                
-                return response.data                     
+                return response.data;                     
             } catch(e) {
                 if (e.response.status == 500)
                 throw new Error('Could not get Job Roles');
