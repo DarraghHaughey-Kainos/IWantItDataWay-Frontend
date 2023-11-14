@@ -27,7 +27,7 @@ describe('AuthService', function() {
             expect(result).to.equal(token);
         })
 
-        it('should throw expception when 500 error returned from axios', async () => {
+        it('should throw exception when 500 error returned from axios', async () => {
             const mock = new MockAdapter(axios);
 
             mock.onPost(`${API_BASE_URL}/login`, login).reply(500)
@@ -52,7 +52,7 @@ describe('AuthService', function() {
             expect(token).to.equal(token);
         })
 
-        it('should throw expception when 500 error returned from axios', async () => {
+        it('should throw exception when 500 error returned from axios', async () => {
             const mock = new MockAdapter(axios);
 
             mock.onPost(`${API_BASE_URL}/register`, login).reply(500)
