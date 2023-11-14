@@ -17,7 +17,9 @@ nunjucks.configure(appViews, nunjucksConfig);
 
 app.set('view engine', 'html');
 
-app.use('./public', express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use(express.json());
 
