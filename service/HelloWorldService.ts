@@ -8,7 +8,11 @@ export class HelloWorldService {
         try { 
             const apiEndPoint: String = `${API_BASE_URL}/hello-world`;
             const params = { token: token }
-            const response = await axios.get(apiEndPoint, { params });
+            const response = await axios.get(apiEndPoint, { 
+                headers: {
+                    'Authorization': token
+                }
+             });
     
             return response.data;
         }catch(e) {
