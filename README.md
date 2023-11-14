@@ -23,16 +23,15 @@ Run `npm run start-win` to start frontend application.
 If `npm run start-win` does not work, run each of these commands separately
 
 <ul>
-<li> npx tsc
-<li> copy -R views dist
-<li> copy -R public dist 
-<li>copy -R images dist
-<li>node dist/app.js
+<li> npx tsc </li>
+<li> copy -R views dist </li>
+<li> copy -R public dist </li>
+<li> copy -R images dist </li>
+<li> node dist/app.js </li>
 </ul>
 
 Once the frontend is running, open `http://localhost:3000` in your browser.
 
 RUNNING UNIT TESTS
 ---
-
 Run `npm test`.
