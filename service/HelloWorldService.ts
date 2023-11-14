@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL } from '../config';
 
 const axios = require("axios")
 
@@ -20,6 +20,4 @@ export class HelloWorldService {
             throw new Error('Could not get Hello World');
         }
     }
-}
-
-
+};

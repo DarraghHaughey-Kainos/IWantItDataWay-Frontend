@@ -1,6 +1,6 @@
 export class helloWorld{
 
-    id: Number
-    name: String
+    id: number;
+    name: string;
 
 }
