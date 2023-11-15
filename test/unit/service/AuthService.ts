@@ -8,7 +8,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const token = 'test_token_value';
 const login: Login = {
-        username: 'test',
+        email: 'test',
         password: 'test'
     };
 const authService: AuthService = new AuthService();
