@@ -7,7 +7,9 @@
     "start": "npx tsc && cp -R views dist && cp -R public dist && cp -R images dist && node dist/app.js",
     "start-win": "npx tsc && copy -R views dist && copy -R public dist && copy -R images dist && node dist/app.js",
     "test": "npx tsc && cp -R views dist && mocha dist/test/unit/**/*.js",
-    "test-ui": "mocha --timeout 10000 test/ui/**/*.js"
+    "test-ui": "mocha --timeout 10000 test/ui/**/*.js",
+    "lint": "npx eslint .",
+    "lint-fix": "npx eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,9 @@
     "axios-mock-adapter": "^1.22.0",
     "chai": "^4.3.10",
     "mocha": "^10.2.0",
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
+    "eslint": "^8.53.0",
     "typescript": "^5.2.2"
   }
 }

@@ -1,9 +1,15 @@
-import { Application, Request, Response } from "express";
-import { helloWorld } from "../model/HelloWorld";
+import { Application, Request, Response } from 'express';
+import { helloWorld } from '../model/HelloWorld';
 const helloWorldService = require('../service/HelloWorldService');
 
 
 module.exports = function(app: Application) {
+
+    app.get('/', async (req:Request, res: Response) => {
+        
+        res.render('Home', {title: 'Home'});
+
+    });
 
     app.get('/hello-world', async (req: Request, res: Response) => {
 
@@ -16,6 +22,7 @@ module.exports = function(app: Application) {
             console.error(e);
         }
 
-        res.render('hello-world', { helloWorld: data, title: "Hello World" });
-    })
-}
+        res.render('HelloWorld', { helloWorld: data, title: 'Hello World' });
+    });
+
+};

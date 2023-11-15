@@ -1,6 +1,6 @@
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL } from '../config';
 
-const axios = require("axios")
+const axios = require('axios');
 
 
 module.exports.getHelloWorld = async function() {
@@ -11,4 +11,4 @@ module.exports.getHelloWorld = async function() {
     }catch(e) {
         throw new Error('Could not get Hello World');
     }
-}
+};
