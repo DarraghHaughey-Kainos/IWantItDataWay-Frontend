@@ -1,5 +1,5 @@
-import { JobRole } from "../../../model/JobRole";
-import { JobRoleService } from "../../../service/JobRoleService";
+import { JobRole } from '../../../model/JobRole';
+import { JobRoleService } from '../../../service/JobRoleService';
 
 const axios = require('axios');
 const MockAdapter = require('axios-mock-adapter');
@@ -28,7 +28,7 @@ describe('JobRoleService', function () {
     
             const results: JobRole[] = await jobRoleService.getJobRoles();
     
-            expect(results).to.deep.equal(jobRole)
+            expect(results).to.deep.equal(jobRole);
           });
     });
 
@@ -43,12 +43,12 @@ describe('JobRoleService', function () {
         let error;
 
         try{
-            await jobRoleService.getJobRoles()
+            await jobRoleService.getJobRoles();
         }catch (e){
-             error = e.message
+             error = e.message;
         }
 
-        expect(error).to.equal('Could not get Job Roles')
-      })
+        expect(error).to.equal('Could not get Job Roles');
+      });
 
-})
+});

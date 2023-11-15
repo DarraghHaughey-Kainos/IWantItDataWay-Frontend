@@ -1,0 +1,12 @@
+{% extends "_includes/layouts/base.html" %}
+{% block content %}
+<main class="container mt-4">
+    <section id="createJobRoles" class="mt-4">
+        {% for capability in capabilities %}
+            <div>
+                {{ capability.capability_id }} | {{ capability.capability_name }}
+            </div>
+            {% endfor %}
+    </section>
+</main>
+{% endblock %}

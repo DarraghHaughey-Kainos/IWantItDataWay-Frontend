@@ -1,9 +1,9 @@
 export class JobRoleRequest{
 
-    jobRoleTitle: String;
-    capabilityId: Number;
+    jobRoleTitle: string;
+    capabilityId: number;
 
-    constructor(jobRoleTitle: String, capabilityId: Number) {
+    constructor(jobRoleTitle: string, capabilityId: number) {
         this.jobRoleTitle = jobRoleTitle;
         this.capabilityId = this.capabilityId;
     }
