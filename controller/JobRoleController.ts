@@ -16,4 +16,10 @@ module.exports = function(app: Application) {
         }
         res.render('job-roles', { jobRoles: data, title: "Job Roles" });
     })
+
+    app.post('/create-job-role', async (req:Request, res:Response) => {
+
+        
+
+    });
 }
