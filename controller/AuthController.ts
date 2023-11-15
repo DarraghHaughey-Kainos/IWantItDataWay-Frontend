@@ -40,7 +40,7 @@ module.exports = function(app: Application) {
         } catch(e) {
             res.locals.errormessage = e.message;
             req.body.password = '';
-            res.render('login', req.body);
+            res.render('register', req.body);
         }
     });
 
