@@ -30,10 +30,12 @@
                             {% if (sessionValid) %}
                             <a class="btn btn-outline-success me-2" href="/logout">
                                 <i class="bi bi-box-arrow-right"></i>
+                                <h3 class="hidden">Logout</h3>
                             </a>
                             {% else %}
                             <a class="btn btn-outline-secondary me-2" href="/login">
                                 <i class="bi bi-person-fill"></i>
+                                <h3 class="hidden">Login</h3>
                             </a>
                             {% endif %}
                         </div>
