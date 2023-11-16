@@ -26,7 +26,7 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-console.log(process.env.EXPRESS_SECRET)
+console.log("EXPRESS SECRET: "+process.env.EXPRESS_SECRET)
 
 app.use(session({
     secret: process.env.EXPRESS_SECRET, 
