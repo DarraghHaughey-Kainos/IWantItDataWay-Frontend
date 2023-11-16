@@ -9,7 +9,6 @@
             <thead>
                 <tr>
                     <th scope="col">Job Title</th>
-                    <th scope="col">Status</th> 
                     <th scope="col">Capability</th>                    
                     <th scope="col">Band</th>                  
                 </tr>
@@ -18,7 +17,6 @@
                 {% for job in jobRoles %}
                 <tr>
                     <td>{{ job.jobRoleTitle }}</td>
-                    <td>Available</td>     
                     <td>{{ job.capabilityName }}</td>            
                     <td> {{ job.bandName }} </td>
                 </tr>
