@@ -12,7 +12,7 @@ const jobRoles: JobRoles[] = [
         id: 1,
         jobRoleTitle: 'Engineer',
         capabilityName: 'Engineering',
-        bandName: 'Associate'
+        bandName: 'Associate',
     }
 ];
 
@@ -23,7 +23,8 @@ const jobRole: JobRole[] = [
         capabilityName: 'Engineering',
         sharepointLink: 'www.link.com',
         specificationText: 'spec 1',
-        bandName: 'Associate'
+        bandName: 'Associate',
+        jobRoleResponsibility: 'Test Responsibility'
     }
 ];
 

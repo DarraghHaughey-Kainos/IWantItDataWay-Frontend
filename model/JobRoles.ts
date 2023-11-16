@@ -10,6 +10,5 @@ export class JobRoles{
         this.jobRoleTitle = jobRoleTitle;
         this.capabilityName = capabilityName;
         this.bandName = bandName;
-        
     }
 }
