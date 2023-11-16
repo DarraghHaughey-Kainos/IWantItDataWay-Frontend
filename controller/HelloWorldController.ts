@@ -1,7 +1,8 @@
 import { Application, Request, Response } from 'express';
 import { helloWorld } from '../model/HelloWorld';
-const helloWorldService = require('../service/HelloWorldService');
+import { HelloWorldService } from '../service/HelloWorldService';
 
+const helloWorldService = new HelloWorldService();
 
 module.exports = function(app: Application) {
 
@@ -10,7 +11,7 @@ module.exports = function(app: Application) {
         let data: helloWorld[] = [];
 
         try {
-            data = await helloWorldService.getHelloWorld();
+            data = await helloWorldService.getHelloWorld(req.session.token);
 
         } catch(e) {
             console.error(e);
