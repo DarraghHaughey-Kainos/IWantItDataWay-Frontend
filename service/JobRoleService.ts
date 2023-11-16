@@ -11,10 +11,11 @@ export class JobRoleService {
             const response = await axios.get(this.API_URL+'/job-roles');
             return response.data;
         } catch (e) {
-            if (e.response.status == 500)
+            if (e.response.status == 500) {
                 throw new Error('Could not get Job Roles');
+            }
+            return null;
         }
-        return null as any;
     }
 
 }
