@@ -4,7 +4,7 @@ const nunjucks = require('nunjucks');
 import { Request, Response, NextFunction } from 'express';
 import session = require('express-session');
 
-console.log("EXPRESS SECRET: "+process.env.EXPRESS_SECRET)
+console.log("SECRETS: "+process.env)
 
 const app = express();
 const authMiddleware = require('./middleware/auth');
