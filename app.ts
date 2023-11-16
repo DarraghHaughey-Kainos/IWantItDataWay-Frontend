@@ -31,4 +31,6 @@ app.listen(3000, () => {
 });
 
 require('./controller/HelloWorldController')(app);
+require('./controller/HomeController')(app);
+require('./controller/JobRoleController')(app);
 
