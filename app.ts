@@ -4,6 +4,8 @@ const nunjucks = require('nunjucks');
 import { Request, Response, NextFunction } from 'express';
 import session = require('express-session');
 
+console.log("EXPRESS SECRET: "+process.env.EXPRESS_SECRET)
+
 const app = express();
 const authMiddleware = require('./middleware/auth');
 
@@ -25,8 +27,6 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
-
-console.log("EXPRESS SECRET: "+process.env.EXPRESS_SECRET)
 
 app.use(session({
     secret: process.env.EXPRESS_SECRET, 
