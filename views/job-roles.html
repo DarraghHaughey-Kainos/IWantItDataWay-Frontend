@@ -9,14 +9,16 @@
             <thead>
                 <tr>
                     <th scope="col">Job Title</th>
-                    <th scope="col">Status</th>                     
+                    <th scope="col">Status</th> 
+                    <th scope="col">Capability</th>                    
                 </tr>
             </thead>
             <tbody>
                 {% for job in jobRoles %}
                 <tr>
                     <td>{{ job.jobRoleTitle }}</td>
-                    <td>Available</td>                
+                    <td>Available</td>     
+                    <td>{{ job.capability_name }}</td>            
                 </tr>
                 {% endfor %}
             </tbody>
