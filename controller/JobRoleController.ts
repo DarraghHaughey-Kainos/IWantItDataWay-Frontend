@@ -15,6 +15,6 @@ module.exports = function(app: Application) {
         } catch(e) {
             console.error(e);
         }
-        res.render('job-roles', { jobRoles: data, title: "Job Roles" });
-    })
-}
+        res.render('job-roles', { jobRoles: data, title: 'Job Roles' });
+    });
+};

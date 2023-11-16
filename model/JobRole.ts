@@ -8,7 +8,7 @@ export class JobRole{
     constructor(id: number, jobRoleTitle: string, capabilityName: string, bandName: string) {
         this.id = id;
         this.jobRoleTitle = jobRoleTitle;
-        this.capabilityName = this.capabilityName
+        this.capabilityName = capabilityName;
         this.bandName = bandName;
         
     }
