@@ -19,5 +19,4 @@ module.exports = function(app: Application) {
 
         res.render('hello-world', { helloWorld: data, title: 'Hello World' });
     });
-
 };
