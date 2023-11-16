@@ -9,8 +9,11 @@ nav {
   width: 100%;
 }
 
+main {
+  flex-grow: 1;
+}
+
 footer {
-  margin-top: auto;
   padding-top: 10px;
   padding-bottom: 10px;
   left: 0;

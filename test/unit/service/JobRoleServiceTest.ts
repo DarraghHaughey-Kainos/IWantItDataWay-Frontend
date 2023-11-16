@@ -9,7 +9,8 @@ const jobRole: JobRole[] = [
     {
         id: 1,
         jobRoleTitle: 'Engineer',
-        capabilityName: 'Engineering'
+        capabilityName: 'Engineering',
+        bandName: 'Associate'
     }
 ];
 
