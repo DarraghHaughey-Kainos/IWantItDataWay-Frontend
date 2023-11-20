@@ -5,6 +5,7 @@ import { Capability } from '../model/Capability';
 import { CapabilityService } from '../service/CapabilityService';
 import { Band } from '../model/Band';
 import { BandService } from '../service/BandService';
+import { JobRoleRequest } from '../model/JobRoleRequest';
 
 const jobRoleService = new JobRoleService();
 const capabilityService = new CapabilityService();
@@ -46,5 +47,20 @@ module.exports = function(app: Application) {
 
     app.post('/job-role', async (req:Request, res: Response) => {
         
+        let data: JobRoleRequest = req.body
+        let id: number;
+
+        try {
+            id = await jobRoleService.createJobeRole(data);
+            res.redirect('/job-roles');
+        } catch (e){
+
+            console.error(e);
+            res.locals.errormessage = e.message;
+            
+            res.render('create-job-role', data);
+
+        }
+
     });
 };

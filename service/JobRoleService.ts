@@ -2,6 +2,7 @@ import { JobRole } from '../model/JobRole';
 import { JobRoleRequest } from '../model/JobRoleRequest';
 import { API_BASE_URL } from '../config';
 const axios = require('axios');
+import createValidator = require('../validator/CreateJobRoleValidator');
 
 
 export class JobRoleService {
@@ -19,10 +20,16 @@ export class JobRoleService {
         }
     }
 
-    async createJobeRole(): Promise<JobRoleRequest> {
+    async createJobeRole(jobRoleRequest: JobRoleRequest): Promise<number> {
         
+        const error: string = createValidator.validateJobRole(jobRoleRequest);
+
+        if(error){
+            throw new Error(error);
+        }
+
         try {
-            const response = await axios.post(this.API_URL+'/job-role');
+            const response = await axios.post(this.API_URL+'/job-role', jobRoleRequest);
             return response.data;
         } catch (e) {
             if (e.response.status == 400){
