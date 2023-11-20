@@ -11,6 +11,9 @@ export class AuthService {
             return response.data;
         } catch (e) {
             if (typeof e.response != 'undefined' && typeof e.response.data != 'undefined') {
+                if (typeof e.response.data.code != 'undefined') {
+                    throw new Error('There has been a problem.');
+                }
                 throw new Error(e.response.data);
             }
             throw new Error('Could not login');
@@ -24,6 +27,9 @@ export class AuthService {
             return response.data;
         } catch (e) {
             if (typeof e.response != 'undefined' && typeof e.response.data != 'undefined') {
+                if (typeof e.response.data.code != 'undefined') {
+                    throw new Error('There has been a problem.');
+                }
                 throw new Error(e.response.data);
             }
             throw new Error('Could not register');
