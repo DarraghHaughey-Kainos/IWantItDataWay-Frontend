@@ -1,12 +1,12 @@
 export class Capability{
 
-    id: number;
+    capabilityId: number;
     capabilityName: string;
 
-    constructor(id: number, capabilityName: string) {
+    constructor(capabilityId: number, capabilityName: string) {
 
-        this.id = id;
+        this.capabilityId = capabilityId;
         this.capabilityName = capabilityName;
-        
+
     }
 }

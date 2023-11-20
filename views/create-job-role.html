@@ -1,0 +1,24 @@
+{% extends "_includes/layouts/base.html" %}
+{% block content %}
+<main class="container mt-4">
+    <section id="Create Job Role" class="mt-4">
+        <h2>Create Job Role</h2>
+        <form action="/job-role" method="post">
+            <label for="jobRoleTitle">Job Role Title:</label>
+            <input type="text" id="jobRoleTitle" name="jobRoleTitle" class="form-control">
+            <label for="cabability">Capability:</label>
+            <select id="cabability" name="Capability" class="form-control" required>
+                {% for capability in capabilities %}
+                <option value={{capability.capabilityId}}>{{capability.capabilityName}}</option>
+                {% endfor %}
+            </select>
+            <label for="band">Capability:</label>
+            <select id="band" name="Band" class="form-control" required>
+                {% for band in bands %}
+                <option value={{band.bandId}}>{{band.bandName}}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </section>
+</main>
+{% endblock %}
