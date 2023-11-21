@@ -34,7 +34,7 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
             } else {
                 // Does Not Have Permission
                 req.session.error = 'Page Requires View or Admin Permissions';
-                res.redirect('/');
+                res.redirect('/error');
             }
         } else if (adminEndpointList.includes(req.url)) {
             // Admin Permission Required.
@@ -45,7 +45,7 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
             } else {
                 // Does Not Have Permission
                 req.session.error = 'Page Requires Admin Permissions';
-                res.redirect('/');
+                res.redirect('/error');
             }
         }
     }

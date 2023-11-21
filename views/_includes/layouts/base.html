@@ -36,10 +36,14 @@
                         </ul>
                         <div class="right-aligned">
                             {% if (sessionValid) %}
-                            <a class="btn btn-outline-success me-2" href="/logout">
+                            <form method="post" action="/logout">
+                                <input type="hidden" name="name" value="value" />
+                                <a class="btn btn-outline-success me-2" style="cursor: pointer;"
+                                onclick="this.parentNode.submit();">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <h3 class="hidden">Logout</h3>
                             </a>
+                              </form>
                             {% else %}
                             <a class="btn btn-outline-secondary me-2" href="/login">
                                 <i class="bi bi-person-fill"></i>
