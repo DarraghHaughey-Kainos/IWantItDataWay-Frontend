@@ -9,6 +9,7 @@ RUNNING ON MAC:
 Set the enivronment variable for the API_BASE_URL:
 
 `export API_BASE_URL=http://localhost:8080/api`
+`export EXPRESS_SECRET=`
 
 Run `npm start` to start frontend application.
 
@@ -18,6 +19,7 @@ RUNNING ON WINDOWS:
 Set the environment variable for the API_BASE_URL:
 
 `New-Item -Path Env:API_BASE_URL -Value http://localhost:8080/api`
+`New-Item -Path Env:EXPRESS_SECRET -Value `
 
 Run `npm run start-win` to start frontend application.
 

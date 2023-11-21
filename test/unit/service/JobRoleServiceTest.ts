@@ -7,20 +7,23 @@ const MockAdapter = require('axios-mock-adapter');
 const chai = require('chai');  
 const expect = chai.expect;
 
-const jobRole: JobRoles[] = [
+const jobRoles: JobRoles[] = [
     {
         id: 1,
         jobRoleTitle: 'Engineer',
+        capabilityName: 'Engineering',
+        bandName: 'Associate'
     }
 ];
 
-const JobRoleSpec: JobRole[] = [
+const jobRole: JobRole[] = [
     {
         jobRoleId: 1,
         jobRoleTitle: 'Engineer',
         capabilityName: 'Engineering',
         sharepointLink: 'www.link.com',
         specificationText: 'spec 1',
+        bandName: 'Associate'
     }
 ];
 
@@ -36,11 +39,11 @@ describe('JobRoleService', function () {
         it('should return job roles from response', async () => {
             const mock = new MockAdapter(axios);
     
-            mock.onGet(jobRoleService.API_URL + '/job-roles').reply(200, jobRole);
+            mock.onGet(jobRoleService.API_URL + '/job-roles').reply(200, jobRoles);
     
             const results: JobRoles[] = await jobRoleService.getJobRoles();
     
-            expect(results).to.deep.equal(jobRole);
+            expect(results).to.deep.equal(jobRoles);
           });
     });
 
@@ -69,11 +72,11 @@ describe('JobRoleService', function () {
             
             const mock = new MockAdapter(axios);
 
-            mock.onGet(jobRoleService.API_URL + '/job-role/1').reply(200, JobRoleSpec);
+            mock.onGet(jobRoleService.API_URL + '/job-roles/1').reply(200, jobRole);
 
             const results: JobRole[] = await jobRoleService.getJobRole(id);
 
-            expect(results).to.deep.equal(JobRoleSpec);
+            expect(results).to.deep.equal(jobRole);
         });
     });
     
@@ -82,7 +85,7 @@ describe('JobRoleService', function () {
 
             const mock = new MockAdapter(axios);
 
-            mock.onGet(jobRoleService.API_URL + '/job-role/1').reply(500);
+            mock.onGet(jobRoleService.API_URL + '/job-roles/1').reply(500);
             let error;
 
             try {

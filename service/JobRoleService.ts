@@ -5,7 +5,7 @@ const axios = require('axios');
 
 
     export class JobRoleService {
-        public API_URL: string = `${API_BASE_URL}`;
+        public API_URL: string = API_BASE_URL;
         
         async getJobRoles(): Promise<JobRoles[]> {
 
@@ -18,12 +18,13 @@ const axios = require('axios');
                 }
                 return [];
             }
+            return null;
         }
 
         async getJobRole(id: string): Promise<JobRole[]> {
 
             try {
-                const response = await axios.get(this.API_URL+`/job-role/${id}`);
+                const response = await axios.get(this.API_URL+`/job-roles/${id}`);
                 return response.data;
             } catch (e) {
                 if (e.response.status == 500) {
@@ -32,5 +33,6 @@ const axios = require('axios');
                 }
                 return [];
             }
+            return null;
         }
 }

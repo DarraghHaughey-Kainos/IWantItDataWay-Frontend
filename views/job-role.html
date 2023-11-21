@@ -4,13 +4,13 @@
        
     <section id="orders" class="">
 
-        <h1>{{ jobSpecs[0].jobRoleTitle }}</h1>
-        {% if jobSpecs and jobSpecs.length > 0 %}
+        <h1>{{ jobRole[0].jobRoleTitle }}</h1>
+        {% if jobRole and jobRole.length > 0 %}
 
-        {% for spec in jobSpecs %}
+        {% for role in jobRole %}
 
         <div class="roleNameDiv">
-            <h2>{{ spec.jobRoleTitle }}</h2>
+            <h2>{{ role.jobRoleTitle }}</h2>
         </div>
         
         <div class="specDiv">
@@ -18,7 +18,8 @@
 
             <div class="specListDiv">
                 <ul>
-                    {% for specText in spec.specificationText %}
+                    {% set specArray = role.specificationText.split(', ') %}
+                    {% for specText in specArray %}
                         <li>{{ specText }}</li>
                     {% endfor %}
                 </ul>
@@ -26,7 +27,7 @@
 
         </div>
         
-        <a href="{{ spec.jobRoleSharepointLink }}">Sharepoint Link</a>
+        <a href="{{ role.sharepointLink }}">Sharepoint Link</a>
         
         {% endfor %}
 
