@@ -30,7 +30,7 @@ describe('CreateJobRoleValidator', function () {
 
         it('should return error message when capability field is null', () => {
 
-            const jobRoleRequest: JobRoleRequest = new JobRoleRequest('Hello', null, 1,'link.sharepoint.com');
+            const jobRoleRequest: JobRoleRequest = new JobRoleRequest('Engineer', null, 1,'link.sharepoint.com');
 
             expect(createJobRoleValidator.validateJobRole(jobRoleRequest)).to.equal('Must select a Capability');
 
@@ -38,7 +38,7 @@ describe('CreateJobRoleValidator', function () {
 
         it('should return error message when band field is null', () => {
 
-            const jobRoleRequest: JobRoleRequest = new JobRoleRequest('Hello', 1, null,'link.sharepoint.com');
+            const jobRoleRequest: JobRoleRequest = new JobRoleRequest('Engineer', 1, null,'link.sharepoint.com');
 
             expect(createJobRoleValidator.validateJobRole(jobRoleRequest)).to.equal('Must select a Band');
 
