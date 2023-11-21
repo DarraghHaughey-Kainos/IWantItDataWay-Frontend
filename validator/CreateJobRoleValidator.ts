@@ -1,19 +1,22 @@
 import { JobRoleRequest } from "../model/JobRoleRequest";
 
-export function validateJobRole(jobRoleRequest: JobRoleRequest): string {
+export class CreateJobRoleValidator {
 
-    if(jobRoleRequest.jobRoleTitle.length <= 0){
-        return "Job Role Title Field must not be empty";
-    }
+    validateJobRole(jobRoleRequest: JobRoleRequest): string {
 
-    if(jobRoleRequest.capabilityName == null){
-        return "Must select a Capability";
-    }
+        if (jobRoleRequest.jobRoleTitle.length <= 0) {
+            return "Job Role Title Field must not be empty";
+        }
 
-    if(jobRoleRequest.bandName == null){
-        return "Must select a Band";
-    }
+        if (jobRoleRequest.capabilityId == null) {
+            return "Must select a Capability";
+        }
 
-    return null;
+        if (jobRoleRequest.bandId == null) {
+            return "Must select a Band";
+        }
 
+        return null;
+
+    };
 }

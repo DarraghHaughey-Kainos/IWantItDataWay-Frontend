@@ -2,11 +2,11 @@ import { JobRole } from '../model/JobRole';
 import { JobRoleRequest } from '../model/JobRoleRequest';
 import { API_BASE_URL } from '../config';
 const axios = require('axios');
-import createValidator = require('../validator/CreateJobRoleValidator');
-
+import { CreateJobRoleValidator } from '../validator/CreateJobRoleValidator';
 
 export class JobRoleService {
     public API_URL: string = API_BASE_URL;
+    createValidator: CreateJobRoleValidator = new CreateJobRoleValidator();
     async getJobRoles(): Promise<JobRole[]> {
 
         try {
@@ -20,9 +20,9 @@ export class JobRoleService {
         }
     }
 
-    async createJobeRole(jobRoleRequest: JobRoleRequest): Promise<number> {
+    async createJobRole(jobRoleRequest: JobRoleRequest): Promise<number> {
         
-        const error: string = createValidator.validateJobRole(jobRoleRequest);
+        const error: string = this.createValidator.validateJobRole(jobRoleRequest);
 
         if(error){
             throw new Error(error);
@@ -32,6 +32,9 @@ export class JobRoleService {
             const response = await axios.post(this.API_URL+'/job-roles/create', jobRoleRequest);
             return response.data;
         } catch (e) {
+            if (e.response.status == 400){
+                throw new Error('Could not create job role - Invalid Information');
+            }
             if (e.response.status == 500){
                 throw new Error('Could not create job role');
             }

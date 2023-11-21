@@ -9,23 +9,25 @@
                 {{ errormessage }}
             </div>
             {% endif %}
-            <form action="/job-role" method="post">
+            <form action="/job-roles/create" method="post">
                 <label for="jobRoleTitle">Job Role Title:</label>
-                <input type="text" id="jobRoleTitle" name="jobRoleTitle" class="form-control">
+                <input type="text" id="jobRoleTitle" name="jobRoleTitle" value='{{userData.jobRoleTitle}}'
+                    class="form-control" required>
                 <label for="cabability">Capability:</label>
                 <select id="cababilityId" name="capabilityId" class="form-control" required>
                     {% for capability in capabilities %}
-                    <option value={{capability.capabilityId}}>{{capability.capabilityName}}</option>
+                    <option value={{capability.capabilityId}} {% if capability.capabilityId==userData.capabilityId %}
+                        selected {% endif %}>{{capability.capabilityName}}</option>
                     {% endfor %}
                 </select>
-                <label for="band">Capability:</label>
+                <label for="band">Band:</label>
                 <select id="bandId" name="bandId" class="form-control" required>
                     {% for band in bands %}
                     <option value={{band.bandId}}>{{band.bandName}}</option>
                     {% endfor %}
                 </select>
                 <label for="sharePointLink">SharePoint Link:</label>
-                <input type="text" id="sharePointLink" name="sharePointLink" class="form-control">
+                <input type="text" id="sharePointLink" name="sharePointLink" class="form-control" required>
                 <button type="submit" class="btn kainosBlueButton">Create Job Role</button>
             </form>
         </div>

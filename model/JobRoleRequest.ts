@@ -1,15 +1,15 @@
 export class JobRoleRequest{
 
     jobRoleTitle: string;
-    capabilityName: string;
-    bandName: string;
+    capabilityId: number;
+    bandId: number;
     sharePointLink: string;
 
-    constructor(jobRoleTitle: string, capabilityName: string, bandName: string, sharePointLink: string) {
+    constructor(jobRoleTitle: string, capabilityId: number, bandId: number, sharePointLink: string) {
 
         this.jobRoleTitle = jobRoleTitle;
-        this.capabilityName = capabilityName;
-        this.bandName = bandName;
+        this.capabilityId = capabilityId;
+        this.bandId = bandId;
         this.sharePointLink = sharePointLink;
         
     }
