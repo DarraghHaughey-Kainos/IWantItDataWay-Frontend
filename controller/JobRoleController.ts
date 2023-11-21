@@ -24,7 +24,7 @@ module.exports = function(app: Application) {
         res.render('job-roles', { jobRoles: data, title: 'Job Roles' });
     });
 
-    app.get('/job-role', async (req: Request, res: Response) => {
+    app.get('/job-roles/create', async (req: Request, res: Response) => {
 
         let capability: Capability[] = [];
         let band: Band[] = [];
@@ -45,7 +45,7 @@ module.exports = function(app: Application) {
 
     });
 
-    app.post('/job-role', async (req:Request, res: Response) => {
+    app.post('/job-roles/create', async (req:Request, res: Response) => {
         
         let data: JobRoleRequest = req.body
         let id: number;

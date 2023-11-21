@@ -29,10 +29,10 @@ export class JobRoleService {
         }
 
         try {
-            const response = await axios.post(this.API_URL+'/job-role', jobRoleRequest);
+            const response = await axios.post(this.API_URL+'/job-roles/create', jobRoleRequest);
             return response.data;
         } catch (e) {
-            if (e.response.status == 400){
+            if (e.response.status == 500){
                 throw new Error('Could not create job role');
             }
             return null;
