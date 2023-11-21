@@ -6,7 +6,6 @@ import { CapabilityService } from '../service/CapabilityService';
 import { Band } from '../model/Band';
 import { BandService } from '../service/BandService';
 import { JobRoleRequest } from '../model/JobRoleRequest';
-import session = require('express-session');
 
 const jobRoleService = new JobRoleService();
 const capabilityService = new CapabilityService();
@@ -48,12 +47,11 @@ module.exports = function(app: Application) {
 
     app.post('/job-roles/create', async (req:Request, res: Response) => {
         
-        let data: JobRoleRequest = req.body;
+        const data: JobRoleRequest = req.body;
         req.session.userData = data;
-        let id: number;
 
         try {
-            id = await jobRoleService.createJobRole(data);
+            await jobRoleService.createJobRole(data);
             req.session.userData = undefined;
             res.redirect('/job-roles');
         } catch (e){
