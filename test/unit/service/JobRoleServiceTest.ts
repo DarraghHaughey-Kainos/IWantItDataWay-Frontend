@@ -28,7 +28,7 @@ describe('JobRoleService', function () {
 
             mock.onGet(jobRoleService.API_URL + '/job-roles').reply(200, jobRole);
 
-            const results: JobRole[] = await jobRoleService.getJobRoles("");
+            const results: JobRole[] = await jobRoleService.getJobRoles('');
 
             expect(results).to.deep.equal(jobRole);
         });
@@ -45,7 +45,7 @@ describe('JobRoleService', function () {
         let error;
 
         try{
-            await jobRoleService.getJobRoles("");
+            await jobRoleService.getJobRoles('');
         }catch (e){
              error = e.message;
         }

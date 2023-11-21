@@ -15,11 +15,10 @@ module.exports = function(app: Application) {
 
         try {
             req.session.token = await authService.login(data);
-            console.log(req.session.token)
 
             res.redirect('/');
         } catch(e) {
-            console.log(e.message)
+            console.log(e.message);
             res.locals.errormessage = e.message.message;
             req.body.password = '';
             res.render('login', req.body);

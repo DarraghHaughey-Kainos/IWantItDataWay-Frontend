@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 
-let noPermissionEndpointList = ['/', '/login', '/register'];
-let viewEndpointList = ['/job-roles'];
-let adminEndpointList = ['/hello-world'];
+const noPermissionEndpointList = ['/', '/login', '/register'];
+const viewEndpointList = ['/job-roles'];
+const adminEndpointList = ['/hello-world'];
 
 module.exports = function (req: Request, res: Response, next: NextFunction) {
 
@@ -19,7 +19,7 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
 
     // Check Endpoint Permissions
     if (routeSecureCheck) {
-        let token: String = req.session.token;
+        const token: string = req.session.token;
 
         const base64String = token.split('.')[1];
         const decodedValue = JSON.parse(Buffer.from(base64String, 'base64').toString('ascii'));
@@ -30,7 +30,7 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
 
             // Check Permission on token
             if (['View', 'Admin'].includes(userRole)) {
-                next()
+                next();
             } else {
                 // Does Not Have Permission
                 req.session.error = 'Page Requires View or Admin Permissions';
@@ -41,7 +41,7 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
 
             // Check Permission on token
             if (['Admin'].includes(userRole)) {
-                next()
+                next();
             } else {
                 // Does Not Have Permission
                 req.session.error = 'Page Requires Admin Permissions';
