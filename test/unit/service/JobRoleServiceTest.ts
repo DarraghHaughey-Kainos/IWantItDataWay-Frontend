@@ -9,6 +9,7 @@ const jobRole: JobRole[] = [
     {
         id: 1,
         jobRoleTitle: 'Engineer',
+        capabilityName: 'Engineering',
         bandName: 'Associate'
     }
 ];
@@ -25,12 +26,12 @@ describe('JobRoleService', function () {
         it('should return job roles from response', async () => {
             const mock = new MockAdapter(axios);
 
-            mock.onGet(jobRoleService.API_URL).reply(200, jobRole);
+            mock.onGet(jobRoleService.API_URL + '/job-roles').reply(200, jobRole);
 
             const results: JobRole[] = await jobRoleService.getJobRoles("");
 
             expect(results).to.deep.equal(jobRole);
-          });
+        });
     });
 
     /*
@@ -38,9 +39,9 @@ describe('JobRoleService', function () {
     */
 
     it('should throw expception when 500 error returned from axios', async () => {
-        const mock = new MockAdapter(axios);        
+        const mock = new MockAdapter(axios);
 
-        mock.onGet(jobRoleService.API_URL).reply(500);
+        mock.onGet(jobRoleService.API_URL + '/job-roles').reply(500);
         let error;
 
         try{
@@ -50,6 +51,5 @@ describe('JobRoleService', function () {
         }
 
         expect(error).to.equal('Could not get Job Roles');
-      });
-
+    });
 });
