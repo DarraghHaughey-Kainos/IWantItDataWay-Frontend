@@ -35,7 +35,7 @@ app.use(session({
 declare module 'express-session'{
     interface SessionData{
         token: string;
-        userData: JobRoleRequest
+        userData?: JobRoleRequest;
    }
 }
 

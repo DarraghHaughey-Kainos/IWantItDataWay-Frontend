@@ -11,14 +11,14 @@ const jobRoleService = new JobRoleService();
 const capabilityService = new CapabilityService();
 const bandService = new BandService();
 
-module.exports = function(app: Application) {
+module.exports = function (app: Application) {
     app.get('/job-roles', async (req: Request, res: Response) => {
 
         let data: JobRole[] = [];
 
         try {
-            data = await jobRoleService.getJobRoles();     
-        } catch(e) {
+            data = await jobRoleService.getJobRoles();
+        } catch (e) {
             console.error(e);
         }
         res.render('job-roles', { jobRoles: data, title: 'Job Roles' });
@@ -31,22 +31,17 @@ module.exports = function(app: Application) {
 
         try {
             capability = await capabilityService.getAllCapabilities();
-        } catch(e) {
-            console.error(e);
-        }
-
-        try {
             band = await bandService.getAllBands();
-        } catch(e) {
+        } catch (e) {
             console.error(e);
         }
 
-        res.render('create-job-role', {capabilities: capability, bands: band, title: 'Create Job Role', userData: req.session.userData});
+        res.render('create-job-role', { capabilities: capability, bands: band, title: 'Create Job Role', userData: req.session.userData });
 
     });
 
-    app.post('/job-roles/create', async (req:Request, res: Response) => {
-        
+    app.post('/job-roles/create', async (req: Request, res: Response) => {
+
         const data: JobRoleRequest = req.body;
         req.session.userData = data;
 
@@ -54,11 +49,11 @@ module.exports = function(app: Application) {
             await jobRoleService.createJobRole(data);
             req.session.userData = undefined;
             res.redirect('/job-roles');
-        } catch (e){
+        } catch (e) {
 
             console.error(e);
             res.locals.errormessage = e.message;
-            
+
             res.redirect('create');
 
         }
