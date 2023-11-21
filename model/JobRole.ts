@@ -1,10 +1,16 @@
-export class JobRole{
+export class JobRole {
 
-    id: number;
+    jobRoleId: number;
     jobRoleTitle: string;
+    capabilityName: string;
+    sharepointLink: string;
+    specificationText: string;
 
-    constructor(id: number, jobRoleTitle: string) {
-        this.id = id;
+    constructor(jobRoleId: number, jobRoleTitle: string, capabilityName: string, specificationText: string, sharepointLink: string) {
+        this.jobRoleId = jobRoleId;
         this.jobRoleTitle = jobRoleTitle;
+        this.capabilityName = capabilityName;
+        this.sharepointLink = sharepointLink;
+        this.specificationText = specificationText;
     }
 }

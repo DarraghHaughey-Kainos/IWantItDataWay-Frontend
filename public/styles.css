@@ -46,3 +46,15 @@ li a:hover {
   text-decoration: underline;
   color: black;
 }
+
+.roleNameDiv {
+  padding: 15px 0 5px 0;
+}
+
+.specDiv {
+  padding: 15px 0 15px 0;
+}
+
+.specListDiv {
+  padding: 5px 0 10px 0;
+}

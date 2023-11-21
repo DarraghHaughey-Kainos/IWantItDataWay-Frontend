@@ -1,0 +1,39 @@
+{% extends "_includes/layouts/base.html" %}
+{% block content %}
+<main class="container mt-4">
+       
+    <section id="orders" class="">
+
+        <h1>{{ jobSpecs[0].jobRoleTitle }}</h1>
+        {% if jobSpecs and jobSpecs.length > 0 %}
+
+        {% for spec in jobSpecs %}
+
+        <div class="roleNameDiv">
+            <h2>{{ spec.jobRoleTitle }}</h2>
+        </div>
+        
+        <div class="specDiv">
+            <h4>Job Specification</h4>
+
+            <div class="specListDiv">
+                <ul>
+                    {% for specText in spec.specificationText %}
+                        <li>{{ specText }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+        
+        <a href="{{ spec.jobRoleSharepointLink }}">Sharepoint Link</a>
+        
+        {% endfor %}
+
+        {% else %}
+            Role Not Found
+        {% endif %}
+    </section>
+
+</main>
+{% endblock %}
