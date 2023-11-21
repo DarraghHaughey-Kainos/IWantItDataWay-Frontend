@@ -2,7 +2,7 @@ import { Application, Request, Response } from 'express';
 import { JobRole } from '../model/JobRole';
 import { JobRoleService } from '../service/JobRoleService';
 
-const jobRoleService = new JobRoleService(); 
+const jobRoleService = new JobRoleService();
 
 module.exports = function(app: Application) {
     app.get('/job-roles', async (req: Request, res: Response) => {
@@ -10,7 +10,7 @@ module.exports = function(app: Application) {
         let data: JobRole[] = [];
 
         try {
-            data = await jobRoleService.getJobRoles();                
+            data = await jobRoleService.getJobRoles(req.session.token);
         } catch(e) {
             console.error(e);
         }

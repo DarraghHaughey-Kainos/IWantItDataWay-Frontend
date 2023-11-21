@@ -4,7 +4,7 @@ import { API_BASE_URL } from '../../../config';
 
 const axios = require('axios');
 const MockAdapter = require('axios-mock-adapter');
-const chai = require('chai');  
+const chai = require('chai');
 const expect = chai.expect;
 const token = 'test_token_value';
 const login: Login = {
@@ -32,13 +32,13 @@ describe('AuthService', function() {
 
             mock.onPost(`${API_BASE_URL}/login`, login).reply(500);
             let error;
-    
+
             try{
                 await authService.login(login);
             }catch(e) {
                 error = e.message;
             }
-    
+
             expect(error).to.equal('Could not login');
         });
     });
@@ -57,13 +57,13 @@ describe('AuthService', function() {
 
             mock.onPost(`${API_BASE_URL}/register`, login).reply(500);
             let error;
-    
+
             try{
                 await authService.register(login);
             }catch(e) {
                 error = e.message;
             }
-    
+
             expect(error).to.equal('Could not register');
         });
     });

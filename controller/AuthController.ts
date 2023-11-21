@@ -15,17 +15,18 @@ module.exports = function(app: Application) {
 
         try {
             req.session.token = await authService.login(data);
+            console.log(req.session.token)
 
             res.redirect('/');
         } catch(e) {
-            res.locals.errormessage = e.message;
+            console.log(e.message)
+            res.locals.errormessage = e.message.message;
             req.body.password = '';
             res.render('login', req.body);
         }
     });
 
     app.get('/register', async (req: Request, res: Response) => {
-        
         res.render('register', {title: 'Register'});
     });
 

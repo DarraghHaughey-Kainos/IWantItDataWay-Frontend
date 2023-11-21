@@ -7,7 +7,16 @@
             <li>
                 <a href="/hello-world">Hello World</a>
             </li>
+            <li>
+                <a href="/job-roles">Job Roles</a>
+            </li>
         </ul>
+
+        {% if (errorMessage is defined) %}
+        <div class="alert alert-danger" role="alert">
+            {{ errorMessage }}
+        </div>
+        {% endif %}
     </div>
 </main>
 {% endblock %}
