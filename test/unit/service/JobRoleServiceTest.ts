@@ -21,6 +21,7 @@ const jobRoleRequest: JobRoleRequest =
     bandId: 1,
     sharePointLink: 'link.sharepoint.com'
 };
+const token = 'test_token_value';
 
 /* 
 unit test for the getJobRoles method 
@@ -36,7 +37,7 @@ describe('JobRoleService', function () {
 
             mock.onGet(jobRoleService.API_URL + '/job-roles').reply(200, jobRole);
 
-            const results: JobRole[] = await jobRoleService.getJobRoles();
+            const results: JobRole[] = await jobRoleService.getJobRoles(token);
 
             expect(results).to.deep.equal(jobRole);
         });
@@ -48,7 +49,7 @@ describe('JobRoleService', function () {
             let error;
 
             try {
-                await jobRoleService.getJobRoles();
+                await jobRoleService.getJobRoles(token);
             } catch (e) {
                 error = e.message;
             }
@@ -64,7 +65,7 @@ describe('JobRoleService', function () {
             const mock = new MockAdapter(axios);
 
             const expected: number = 1;
-            mock.onPost(jobRoleService.API_URL + '/job-roles/create').reply(201, expected);
+            mock.onPost(jobRoleService.API_URL + '/job-roles').reply(201, expected);
 
             const result: number = await jobRoleService.createJobRole(jobRoleRequest);
 
@@ -75,7 +76,7 @@ describe('JobRoleService', function () {
         it('should throw an exception when 400 returned from axios', async () => {
             const mock = new MockAdapter(axios);
 
-            mock.onPost(jobRoleService.API_URL + '/job-roles/create').reply(400);
+            mock.onPost(jobRoleService.API_URL + '/job-roles').reply(400);
 
             let error;
 
@@ -92,7 +93,7 @@ describe('JobRoleService', function () {
         it('should throw an exception when 500 returned from axios', async () => {
             const mock = new MockAdapter(axios);
 
-            mock.onPost(jobRoleService.API_URL + '/job-roles/create').reply(500);
+            mock.onPost(jobRoleService.API_URL + '/job-roles').reply(500);
 
             let error;
 

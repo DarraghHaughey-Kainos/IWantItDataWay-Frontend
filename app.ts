@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-    secret: process.env.EXPRESS_SECRET, 
+    secret: process.env.EXPRESS_SECRET,
     cookie: {maxAge: 600000}
 }));
 
@@ -36,10 +36,11 @@ declare module 'express-session'{
     interface SessionData{
         token: string;
         userData?: JobRoleRequest;
+        error: string;
    }
 }
 
-app.listen(3000, () => { 
+app.listen(3000, () => {
     console.log('Server listening on port 3000');
 });
 

@@ -5,11 +5,11 @@ const axios = require('axios');
 export class HelloWorldService {
 
     async getHelloWorld(token: string) {
-        try { 
+        try {
             const apiEndPoint: string = `${API_BASE_URL}/hello-world`;
             const headers = { 'Authorization': token };
             const response = await axios.get(apiEndPoint, { headers });
-    
+
             return response.data;
         }catch(e) {
             console.error(e.response.data);

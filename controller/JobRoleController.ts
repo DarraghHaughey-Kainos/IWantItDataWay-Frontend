@@ -11,14 +11,14 @@ const jobRoleService = new JobRoleService();
 const capabilityService = new CapabilityService();
 const bandService = new BandService();
 
-module.exports = function (app: Application) {
+module.exports = function(app: Application) {
     app.get('/job-roles', async (req: Request, res: Response) => {
 
         let data: JobRole[] = [];
 
         try {
-            data = await jobRoleService.getJobRoles();
-        } catch (e) {
+            data = await jobRoleService.getJobRoles(req.session.token);
+        } catch(e) {
             console.error(e);
         }
         res.render('job-roles', { jobRoles: data, title: 'Job Roles' });
