@@ -43,9 +43,13 @@ module.exports = function(app: Application) {
     app.post('/job-roles/create', async (req: Request, res: Response) => {
 
         const data: JobRoleRequest = req.body;
+        let capability: Capability[] = [];
+        let band: Band[] = [];
         req.session.userData = data;
 
         try {
+            capability = await capabilityService.getAllCapabilities(req.session.token);
+            band = await bandService.getAllBands(req.session.token);
             await jobRoleService.createJobRole(data);
             req.session.userData = undefined;
             res.redirect('/job-roles');
@@ -53,8 +57,7 @@ module.exports = function(app: Application) {
 
             console.error(e);
             res.locals.errormessage = e.message;
-
-            res.redirect('create');
+            res.render('create-job-role', { capabilities: capability, bands: band, title: 'Create Job Role', userData: req.session.userData });
 
         }
 

@@ -12,7 +12,7 @@
             <form action="/job-roles/create" method="post">
                 <label for="jobRoleTitle">Job Role Title:</label>
                 <input type="text" id="jobRoleTitle" name="jobRoleTitle" value='{{userData.jobRoleTitle}}'
-                    class="form-control" required>
+                    class="form-control" pattern="[^'\x22]+" required>
                 <label for="cabability">Capability:</label>
                 <select id="cababilityId" name="capabilityId" class="form-control" required>
                     {% for capability in capabilities %}
@@ -27,7 +27,8 @@
                     {% endfor %}
                 </select>
                 <label for="sharePointLink">SharePoint Link:</label>
-                <input type="text" id="sharePointLink" name="sharePointLink" class="form-control" required>
+                <input type="text" id="sharePointLink" name="sharePointLink" class="form-control"
+                    value='{{userData.sharePointLink}}' pattern="[^'\x22]+" required>
                 <button type="submit" class="btn kainosBlueButton">Create Job Role</button>
             </form>
         </div>
