@@ -63,11 +63,11 @@ describe('JobRoleService', function () {
 
         it('should return id of role created', async () => {
             const mock = new MockAdapter(axios);
-
+            const token: string = ''
             const expected: number = 1;
             mock.onPost(jobRoleService.API_URL + '/job-roles').reply(201, expected);
 
-            const result: number = await jobRoleService.createJobRole(jobRoleRequest);
+            const result: number = await jobRoleService.createJobRole(jobRoleRequest, token);
 
             expect(expected).to.deep.equal(result);
 
@@ -77,11 +77,11 @@ describe('JobRoleService', function () {
             const mock = new MockAdapter(axios);
 
             mock.onPost(jobRoleService.API_URL + '/job-roles').reply(400);
-
+            const token: string = ''
             let error;
 
             try {
-                await jobRoleService.createJobRole(jobRoleRequest);
+                await jobRoleService.createJobRole(jobRoleRequest, token);
             } catch (e) {
                 error = e.message;
             }
@@ -94,11 +94,12 @@ describe('JobRoleService', function () {
             const mock = new MockAdapter(axios);
 
             mock.onPost(jobRoleService.API_URL + '/job-roles').reply(500);
+            const token: string = ''
 
             let error;
 
             try {
-                await jobRoleService.createJobRole(jobRoleRequest);
+                await jobRoleService.createJobRole(jobRoleRequest, token);
             } catch (e) {
                 error = e.message;
             }

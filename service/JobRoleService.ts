@@ -11,7 +11,7 @@ export class JobRoleService {
 
         try {
             const headers = { 'Authorization': token };
-            const response = await axios.get(this.API_URL+'/job-roles', { headers });
+            const response = await axios.get(this.API_URL + '/job-roles', { headers });
             return response.data;
         } catch (e) {
             if (e.response.status == 500) {
@@ -22,22 +22,22 @@ export class JobRoleService {
     }
 
     async createJobRole(jobRoleRequest: JobRoleRequest, token: string): Promise<number> {
-        
+
         const error: string = this.createValidator.validateJobRole(jobRoleRequest);
 
-        if(error){
+        if (error) {
             throw new Error(error);
         }
 
         try {
             const headers = { 'Authorization': token };
-            const response = await axios.post(this.API_URL+'/job-roles', jobRoleRequest, { headers });
+            const response = await axios.post(this.API_URL + '/job-roles', jobRoleRequest, { headers });
             return response.data;
         } catch (e) {
-            if (e.response.status == 400){
+            if (e.response.status == 400) {
                 throw new Error('Could not create job role - Invalid Information');
             }
-            if (e.response.status == 500){
+            if (e.response.status == 500) {
                 throw new Error('Could not create job role');
             }
             return null;
