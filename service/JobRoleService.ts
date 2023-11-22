@@ -21,7 +21,7 @@ export class JobRoleService {
         }
     }
 
-    async createJobRole(jobRoleRequest: JobRoleRequest): Promise<number> {
+    async createJobRole(jobRoleRequest: JobRoleRequest, token: string): Promise<number> {
         
         const error: string = this.createValidator.validateJobRole(jobRoleRequest);
 
@@ -30,7 +30,8 @@ export class JobRoleService {
         }
 
         try {
-            const response = await axios.post(this.API_URL+'/job-roles', jobRoleRequest);
+            const headers = { 'Authorization': token };
+            const response = await axios.post(this.API_URL+'/job-roles', jobRoleRequest, { headers });
             return response.data;
         } catch (e) {
             if (e.response.status == 400){
