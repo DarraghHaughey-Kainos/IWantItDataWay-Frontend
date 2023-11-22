@@ -11,8 +11,7 @@
     <div>
         <div class="display-cards">
             <div class="card">
-                <img src="/images/CardImage1.png"
-                    class="card-img-top" alt="...">
+                <img src="/images/CardImage1.png" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Job Roles</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam exercitationem
@@ -22,13 +21,17 @@
             </div>
 
             <div class="card">
-                <img src="/images/CardImage2.png"
-                    class="card-img-top" alt="...">
+                <img src="/images/CardImage2.png" class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title">Log in</h5>
+                    <h5 class="card-title">Find Out More</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam exercitationem
                         temporibus culpa a cumque quisquam debitis quod atque iste quasi!</p>
+                    {% if (sessionValid) %}
+                    <a href="https://kainos.wd3.myworkdayjobs.com/en-US/Kainos" class="btn btn-primary">Find out
+                        more</a>
+                    {% else %}
                     <a href="/login" class="btn btn-primary">Login</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
