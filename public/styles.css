@@ -67,3 +67,38 @@ li a:hover {
 .specListDiv {
   padding: 5px 0 10px 0;
 }
+
+div.carousel-caption {
+  margin: 30px;
+  background-color: #ffffff;
+  opacity: 0.9;
+  border-radius: 40px;
+  min-height: 72%; 
+  max-height: 80%;
+  width: 65%; 
+  font-size: 0.9rem;
+}
+
+div.carousel-caption p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+div.carousel-caption h5 {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+@media screen and (max-width: 992px) {
+  div.carousel-caption {
+    font-size: 0.6rem; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  div.carousel-caption {
+    font-size: 0.5rem; 
+  }
+}
