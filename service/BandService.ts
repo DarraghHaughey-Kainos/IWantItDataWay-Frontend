@@ -8,7 +8,7 @@ export class BandService {
 
         try {
             const headers = { 'Authorization': token };
-            const response = await axios.get(this.API_URL + '/bands');
+            const response = await axios.get(this.API_URL + '/bands', {headers});
             return response.data;
         } catch (e) {
             if (e.response.status == 500) {
