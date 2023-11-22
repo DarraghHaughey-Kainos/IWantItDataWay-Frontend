@@ -29,7 +29,7 @@ export class JobRoleService {
         }
 
         try {
-            const response = await axios.post(this.API_URL+'/job-roles/create', jobRoleRequest);
+            const response = await axios.post(this.API_URL+'/job-roles', jobRoleRequest);
             return response.data;
         } catch (e) {
             if (e.response.status == 400){
