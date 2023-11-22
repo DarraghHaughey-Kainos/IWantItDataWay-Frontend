@@ -46,6 +46,7 @@ module.exports = function(app: Application) {
 
     app.post('/logout', async (req: Request, res: Response) => {
         req.session.token = undefined;
+        req.session.isAdmin = undefined;
 
         res.redirect('/');
     });

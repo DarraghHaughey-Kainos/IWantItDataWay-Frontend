@@ -1,14 +1,23 @@
 {% extends "_includes/layouts/base.html" %}
 {% block content %}
 <main class="container mt-4">
-       
+
     <section id="orders" class="">
 
         <h1>{{ jobRole[0].jobRoleTitle }}</h1>
+
+        {% if isAdmin %}
+            <form method="post" action="/job-roles/delete/{{ jobRole[0].jobRoleId }}" style="float: right; color: white;">
+                <a class="btn btn-danger" style="cursor: pointer;"
+                    onclick="this.parentNode.submit();">Delete
+                </a>
+            </form>
+        {% endif %}
+
         {% if jobRole and jobRole.length > 0 %}
 
         {% for role in jobRole %}
-        
+
         <div class="specDiv">
             <h4>Job Specification</h4>
 
