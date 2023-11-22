@@ -5,10 +5,11 @@ const axios = require('axios');
 
 export class JobRoleService {
     public API_URL: string = API_BASE_URL;
-    async getJobRoles(): Promise<JobRole[]> {
+    async getJobRoles(token: string): Promise<JobRole[]> {
 
         try {
-            const response = await axios.get(this.API_URL+'/job-roles');
+            const headers = { 'Authorization': token };
+            const response = await axios.get(this.API_URL+'/job-roles', { headers });
             return response.data;
         } catch (e) {
             if (e.response.status == 500) {
@@ -17,5 +18,4 @@ export class JobRoleService {
             return null;
         }
     }
-
 }

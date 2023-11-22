@@ -8,4 +8,9 @@ module.exports = function(app: Application) {
         res.render('index', {title: 'Home'});
     });
 
+    app.get('/error', async (req: Request, res: Response) => {
+
+        res.render('index', {title: 'Home', errorMessage: req.session.error});
+    });
+
 };
