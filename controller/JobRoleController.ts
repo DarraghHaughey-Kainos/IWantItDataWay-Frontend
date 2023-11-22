@@ -5,14 +5,13 @@ import { JobRoleService } from '../service/JobRoleService';
 
 const jobRoleService = new JobRoleService();
 
-
 module.exports = function(app: Application) {
     app.get('/job-roles', async (req: Request, res: Response) => {
 
         let data: JobRoles[] = [];
 
         try {
-            data = await jobRoleService.getJobRoles();     
+            data = await jobRoleService.getJobRoles(req.session.token);
         } catch(e) {
             console.error(e);
         }
@@ -25,7 +24,7 @@ module.exports = function(app: Application) {
         const id: string = req.params.id;
 
         try {
-            data = await jobRoleService.getJobRoleById(id);
+            data = await jobRoleService.getJobRoleById(id, req.session.token);
         } catch (e) {
             console.error(e);
         }

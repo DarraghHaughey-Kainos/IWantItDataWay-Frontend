@@ -4,7 +4,7 @@ import { JobRoleService } from '../../../service/JobRoleService';
 
 const axios = require('axios');
 const MockAdapter = require('axios-mock-adapter');
-const chai = require('chai');  
+const chai = require('chai');
 const expect = chai.expect;
 
 const jobRoles: JobRoles[] = [
@@ -27,8 +27,8 @@ const jobRole: JobRole[] = [
     }
 ];
 
-/* 
-ui test for the getJobRoles method 
+/*
+ui test for the getJobRoles method
 expect the job roles to be returned
 */
 
@@ -38,13 +38,13 @@ describe('JobRoleService', function () {
     describe('getJobRoles', function () {
         it('should return job roles from response', async () => {
             const mock = new MockAdapter(axios);
-    
+
             mock.onGet(jobRoleService.API_URL + '/job-roles').reply(200, jobRoles);
-    
-            const results: JobRoles[] = await jobRoleService.getJobRoles();
-    
+
+            const results: JobRoles[] = await jobRoleService.getJobRoles('');
+
             expect(results).to.deep.equal(jobRoles);
-          });
+        });
     });
 
     /*
@@ -52,13 +52,13 @@ describe('JobRoleService', function () {
     */
 
     it('should throw expception when 500 error returned from axios', async () => {
-        const mock = new MockAdapter(axios);        
+        const mock = new MockAdapter(axios);
 
         mock.onGet(jobRoleService.API_URL + '/job-roles').reply(500);
         let error;
 
         try{
-            await jobRoleService.getJobRoles();
+            await jobRoleService.getJobRoles('');
         }catch (e){
              error = e.message;
         }
@@ -74,7 +74,7 @@ describe('JobRoleService', function () {
 
             mock.onGet(jobRoleService.API_URL + '/job-roles/1').reply(200, jobRole);
 
-            const results: JobRole[] = await jobRoleService.getJobRoleById(id);
+            const results: JobRole[] = await jobRoleService.getJobRoleById(id, '');
 
             expect(results).to.deep.equal(jobRole);
         });
@@ -89,7 +89,7 @@ describe('JobRoleService', function () {
             let error;
 
             try {
-                await jobRoleService.getJobRoleById(id);
+                await jobRoleService.getJobRoleById(id, '');
             } catch (e) {
                 error = e.message;
             }
@@ -106,7 +106,7 @@ describe('JobRoleService', function () {
             let error;
 
             try {
-                await jobRoleService.getJobRoleById(id);
+                await jobRoleService.getJobRoleById(id, '');
             } catch (e) {
                 error = e.message;
             }

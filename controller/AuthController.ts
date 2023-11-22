@@ -18,6 +18,7 @@ module.exports = function(app: Application) {
 
             res.redirect('/');
         } catch(e) {
+            console.error(e.message);
             res.locals.errormessage = e.message;
             req.body.password = '';
             res.render('login', req.body);
@@ -25,7 +26,6 @@ module.exports = function(app: Application) {
     });
 
     app.get('/register', async (req: Request, res: Response) => {
-        
         res.render('register', {title: 'Register'});
     });
 
@@ -44,8 +44,8 @@ module.exports = function(app: Application) {
         }
     });
 
-    app.get('/logout', async (req: Request, res: Response) => {
-        req.session.token = '';
+    app.post('/logout', async (req: Request, res: Response) => {
+        req.session.token = undefined;
 
         res.redirect('/');
     });
