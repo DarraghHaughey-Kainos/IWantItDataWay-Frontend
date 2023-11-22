@@ -21,16 +21,20 @@ const axios = require('axios');
             return null;
         }
 
-        async getJobRole(id: string): Promise<JobRole[]> {
+        async getJobRoleById(id: string): Promise<JobRole[]> {
 
             try {
                 const response = await axios.get(this.API_URL+`/job-roles/${id}`);
                 return response.data;
             } catch (e) {
                 if (e.response.status == 500) {
-
                     throw new Error('Could not get Job Role');
                 }
+
+                if (e.response.status == 404) {
+                    throw new Error('Job Role does not exist');
+                }
+
                 return [];
             }
             return null;

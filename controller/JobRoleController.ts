@@ -25,8 +25,7 @@ module.exports = function(app: Application) {
         const id: string = req.params.id;
 
         try {
-            data = await jobRoleService.getJobRole(id);
-            
+            data = await jobRoleService.getJobRoleById(id);
         } catch (e) {
             console.error(e);
         }

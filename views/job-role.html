@@ -8,31 +8,37 @@
         {% if jobRole and jobRole.length > 0 %}
 
         {% for role in jobRole %}
-
-        <div class="roleNameDiv">
-            <h2>{{ role.jobRoleTitle }}</h2>
-        </div>
         
         <div class="specDiv">
             <h4>Job Specification</h4>
 
             <div class="specListDiv">
                 <ul>
-                    {% set specArray = role.specificationText.split(', ') %}
-                    {% for specText in specArray %}
-                        <li>{{ specText }}</li>
-                    {% endfor %}
-                </ul>
+                        {% if role.specificationText %}
+                            {% set specArray = role.specificationText.split(', ') %}
+                            {% for specText in specArray %}
+                                <li>{{ specText }}</li>
+                            {% endfor %}
+                        {% else %}
+                            <li>No specification available</li>
+                        {% endif %}
+                    </ul>
             </div>
 
         </div>
         
         <a href="{{ role.sharepointLink }}">Sharepoint Link</a>
+        <a href="/job-roles">Back</a>
         
         {% endfor %}
 
         {% else %}
+        <div class="alert alert-danger" role="alert">
             Role Not Found
+        </div>
+        <div>
+            <a href="/job-roles">Home</a>
+        </div>
         {% endif %}
     </section>
 

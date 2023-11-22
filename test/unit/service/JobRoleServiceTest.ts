@@ -74,7 +74,7 @@ describe('JobRoleService', function () {
 
             mock.onGet(jobRoleService.API_URL + '/job-roles/1').reply(200, jobRole);
 
-            const results: JobRole[] = await jobRoleService.getJobRole(id);
+            const results: JobRole[] = await jobRoleService.getJobRoleById(id);
 
             expect(results).to.deep.equal(jobRole);
         });
@@ -89,12 +89,29 @@ describe('JobRoleService', function () {
             let error;
 
             try {
-                await jobRoleService.getJobRole(id);
+                await jobRoleService.getJobRoleById(id);
             } catch (e) {
                 error = e.message;
             }
 
             expect(error).to.equal('Could not get Job Role');
+        });
+
+        it('should throw exception when 404 error returned from axios', async () => {
+            const id: string = '2';
+
+            const mock = new MockAdapter(axios);
+
+            mock.onGet(jobRoleService.API_URL + '/job-roles/2').reply(404);
+            let error;
+
+            try {
+                await jobRoleService.getJobRoleById(id);
+            } catch (e) {
+                error = e.message;
+            }
+
+            expect(error).to.equal('Job Role does not exist');
         });
 
 });
