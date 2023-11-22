@@ -4,9 +4,10 @@ const axios = require('axios');
 
 export class BandService {
     public API_URL: string = API_BASE_URL;
-    async getAllBands(): Promise<Band[]> {
+    async getAllBands(token: string): Promise<Band[]> {
 
         try {
+            const headers = { 'Authorization': token };
             const response = await axios.get(this.API_URL + '/bands');
             return response.data;
         } catch (e) {

@@ -30,8 +30,8 @@ module.exports = function(app: Application) {
         let band: Band[] = [];
 
         try {
-            capability = await capabilityService.getAllCapabilities();
-            band = await bandService.getAllBands();
+            capability = await capabilityService.getAllCapabilities(req.session.token);
+            band = await bandService.getAllBands(req.session.token);
         } catch (e) {
             console.error(e);
         }

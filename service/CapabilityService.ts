@@ -4,10 +4,11 @@ const axios = require('axios');
 
 export class CapabilityService {
     public API_URL: string = API_BASE_URL;
-    async getAllCapabilities(): Promise<Capability[]> {
+    async getAllCapabilities(token: string): Promise<Capability[]> {
 
         try {
-            const response = await axios.get(this.API_URL + '/capabilities');
+            const headers = { 'Authorization': token };
+            const response = await axios.get(this.API_URL + '/capabilities', {headers});
             return response.data;
         } catch (e) {
             if (e.response.status == 500) {
