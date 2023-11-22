@@ -55,5 +55,9 @@ require('./controller/HomeController')(app);
 require('./controller/AuthController')(app);
 
 app.use(authMiddleware);
+
 require('./controller/HelloWorldController')(app);
 require('./controller/JobRoleController')(app);
+require('./controller/JobRoleController')(app);
+
+
