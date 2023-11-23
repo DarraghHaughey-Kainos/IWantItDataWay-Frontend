@@ -79,7 +79,7 @@ describe('JobRoleService', function () {
             expect(results).to.deep.equal(jobRole);
         });
     });
-    
+
         it('should throw exception when 500 error returned from axios', async () => {
             const id: number = 1;
 
@@ -114,4 +114,77 @@ describe('JobRoleService', function () {
             expect(error).to.equal('Job Role does not exist');
         });
 
+});
+
+
+describe('createJobRole', function () {
+    it('should return response 204 when able to delete job role.', async () => {
+        const id: number = 1;
+        const fakeResponse = {
+            message: 'Job Role with ' + id + ' has been removed!',
+            status: 204,
+        };
+
+        const headers = { 'Authorization': '' };
+
+
+        const mock = new MockAdapter(axios);
+
+        mock.onDelete(jobRoleService.API_URL + '/job-roles/' + id, { headers }).reply(204, fakeResponse);
+
+        const results = await jobRoleService.deleteJobRoleById('', id);
+
+        expect(results.status).to.deep.equal(fakeResponse.status);
+    });
+
+    it('should return response 500 when server error occurs.', async () => {
+        const id: number = 1;
+        let error: string;
+
+        const headers = { 'Authorization': '' };
+        const mock = new MockAdapter(axios);
+        mock.onDelete(jobRoleService.API_URL + '/job-roles/' + id, { headers }).reply(500);
+
+        try {
+            await jobRoleService.deleteJobRoleById('', id);
+        } catch (e) {
+            error = e.message;
+        }
+
+        expect(error).to.deep.equal('Could Not Get Job Roles');
+    });
+
+    it('should return response 403 when user is unauthorised to perform action.', async () => {
+        const id: number = 1;
+        let error: string;
+
+        const headers = { 'Authorization': '' };
+        const mock = new MockAdapter(axios);
+        mock.onDelete(jobRoleService.API_URL + '/job-roles/' + id, { headers }).reply(403);
+
+        try {
+            await jobRoleService.deleteJobRoleById('', id);
+        } catch (e) {
+            error = e.message;
+        }
+
+        expect(error).to.deep.equal('You Do Not Have The Correct Permissions');
+    });
+
+    it('should return response 404 when job role id does not exist.', async () => {
+        const id: number = -1;
+        let error: string;
+
+        const headers = { 'Authorization': '' };
+        const mock = new MockAdapter(axios);
+        mock.onDelete(jobRoleService.API_URL + '/job-roles/' + id, { headers }).reply(404);
+
+        try {
+            await jobRoleService.deleteJobRoleById('', id);
+        } catch (e) {
+            error = e.message;
+        }
+
+        expect(error).to.deep.equal('Could Not Find Job Roles With ID: -1');
+    });
 });

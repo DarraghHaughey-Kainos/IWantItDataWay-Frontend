@@ -37,7 +37,23 @@ export class JobRoleService {
 
             return [];
         }
-        return null;
     }
 
+    async deleteJobRoleById(token: string, id: number): Promise<Response> {
+
+        try {
+            const headers = { 'Authorization': token };
+            const response = await axios.delete(this.API_URL+'/job-roles/' + id, { headers });
+            return response.data;
+        } catch (e) {
+            if (e.response.status == 500) {
+                throw new Error('Could Not Get Job Roles');
+            } else if (e.response.status == 403) {
+                // User does not have permissions for this endpoint
+                throw new Error('You Do Not Have The Correct Permissions');
+            } else if (e.response.status == 404) {
+                throw new Error('Could Not Find Job Roles With ID: ' + id);
+            }
+        }
+    }
 }

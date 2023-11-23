@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
 const noPermissionEndpointList = ['/', '/login', '/register'];
-const viewEndpointList = ['/job-roles', '/job-roles/*'];
+const viewEndpointList = ['/job-roles', '/job-roles/*', '/job-roles/delete/*'];
 const adminEndpointList = ['/hello-world'];
 
 module.exports = function (req: Request, res: Response, next: NextFunction) {
@@ -25,6 +25,11 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
         const base64String = token.split('.')[1];
         const decodedValue = JSON.parse(Buffer.from(base64String, 'base64').toString('ascii'));
         const userRole: string = decodedValue['role'];
+
+        if (userRole == 'Admin') {
+            req.session.isAdmin = true;
+        }
+
 
         if (viewEndpointList.includes(urlToCheck)) {
             // View Permission Required.

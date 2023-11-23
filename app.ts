@@ -35,6 +35,7 @@ declare module 'express-session'{
     interface SessionData{
         token: string;
         error: string;
+        isAdmin: boolean;
    }
 }
 
