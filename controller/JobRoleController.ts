@@ -14,7 +14,7 @@ module.exports = function(app: Application) {
             data = await jobRoleService.getJobRoles(req.session.token);
         } catch(e) {
             console.error(e);
-        }
+        }     
         res.render('job-roles', { jobRoles: data, title: 'Job Roles' });
     });
 
@@ -29,7 +29,7 @@ module.exports = function(app: Application) {
             
         } catch (e) {
             console.error(e);
-        }
+        }        
         res.render('job-role', { jobRole: data, title: 'Job Role' });
     });
 };

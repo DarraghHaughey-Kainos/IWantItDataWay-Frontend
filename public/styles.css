@@ -123,3 +123,107 @@ li a:hover {
 .specListDiv {
   padding: 5px 0 10px 0;
 }
+
+div.carousel-caption {
+  margin: 30px;
+  background-color: #ffffff;
+  opacity: 0.9;
+  border-radius: 40px;
+  min-height: 72%; 
+  max-height: 80%;
+  width: 65%; 
+  font-size: 0.9rem;
+}
+
+div.carousel-caption p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+div.carousel-caption h5 {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+@media screen and (max-width: 992px) {
+  div.carousel-caption {
+    font-size: 0.6rem; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  div.carousel-caption {
+    font-size: 0.5rem; 
+  }
+}
+
+
+.display-cards {
+  text-align: left; 
+}
+
+.card {
+  padding-top: 35px;
+  display: inline-block;
+  width: 30rem;
+  margin-right: 25px; 
+  box-sizing: border-box; 
+  border: none;
+  font-size: large;
+}
+
+.card img {
+  width: 100%; 
+  height: auto; 
+  max-width: 100%; 
+  max-height: 100%; 
+}
+
+.index-image img {
+  position: relative;
+  width: 100vw;
+  height: 55vh;
+  display: block;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%; 
+  left: 65%; 
+  transform: translate(-50%, -50%); 
+  background-color: #283583; 
+  color: #fff; 
+  padding: 10px 20px; 
+  font-size: 20px; 
+  text-align: left;
+}
+
+.overlay-text p {
+  font-size: small;
+}
+
+.kainosBlueButton {
+  margin-top: 10px;
+  background-color: rgb(40, 53, 131);
+  color: white;
+}
+ 
+.kainosBlueButton:hover {
+  background-color: white;
+  color: rgb(40, 53, 131);
+  border-color: rgb(40, 53, 131);
+}
+
+.roleNameDiv {
+  padding: 15px 0 5px 0;
+}
+
+.specDiv {
+  padding: 15px 0 15px 0;
+}
+
+.specListDiv {
+  padding: 5px 0 10px 0;
+}

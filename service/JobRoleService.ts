@@ -25,7 +25,8 @@ export class JobRoleService {
         try {
             const headers = { 'Authorization': token };
             const response = await axios.get(this.API_URL+`/job-roles/${id}`, { headers });
-            return response.data;
+            return response.data;    
+            
         } catch (e) {
             if (e.response.status == 500) {
                 throw new Error('Could not get Job Role');
@@ -34,10 +35,7 @@ export class JobRoleService {
             if (e.response.status == 404) {
                 throw new Error('Job Role does not exist');
             }
-
             return [];
         }
-        return null;
     }
-
 }
