@@ -26,6 +26,7 @@ module.exports = function(app: Application) {
 
         try {
             data = await jobRoleService.getJobRoleById(id, req.session.token);
+            
         } catch (e) {
             console.error(e);
         }

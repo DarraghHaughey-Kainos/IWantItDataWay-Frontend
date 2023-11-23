@@ -12,5 +12,4 @@ module.exports = function(app: Application) {
 
         res.render('index', {title: 'Home', errorMessage: req.session.error});
     });
-
 };

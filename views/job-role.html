@@ -15,9 +15,11 @@
             <div class="specListDiv">
                 <ul>
                         {% if role.specificationText %}
-                            {% set specArray = role.specificationText.split(', ') %}
+                            {% set specArray = role.specificationText.split('^') %}
                             {% for specText in specArray %}
-                                <li>{{ specText }}</li>
+                                {% if specText | length %}
+                                    <li>{{ specText }}</li>
+                                {% endif %}
                             {% endfor %}
                         {% else %}
                             <li>No specification available</li>
