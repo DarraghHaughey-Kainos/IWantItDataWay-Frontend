@@ -13,4 +13,9 @@ module.exports = function(app: Application) {
         res.render('index', {title: 'Home', errorMessage: req.session.error});
     });
 
+    app.get('/accessibility-statement', async (req: Request, res: Response) => {
+
+        res.render('accessibility-statement', {title: 'Accessibility Statement'});
+    });
+
 };
