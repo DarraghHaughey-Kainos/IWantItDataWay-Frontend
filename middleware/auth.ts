@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 
 const noPermissionEndpointList = ['/', '/login', '/register'];
 const viewEndpointList = ['/job-roles'];
-const adminEndpointList = ['/hello-world'];
+const adminEndpointList = ['/hello-world', '/job-roles/create'];
 
 module.exports = function (req: Request, res: Response, next: NextFunction) {
 

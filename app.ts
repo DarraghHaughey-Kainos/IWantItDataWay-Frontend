@@ -3,6 +3,7 @@ const path = require('path');
 const nunjucks = require('nunjucks');
 import { Request, Response, NextFunction } from 'express';
 import session = require('express-session');
+import { JobRoleRequest } from './model/JobRoleRequest';
 
 const app = express();
 const authMiddleware = require('./middleware/auth');
@@ -34,6 +35,7 @@ app.use(session({
 declare module 'express-session'{
     interface SessionData{
         token: string;
+        userData?: JobRoleRequest;
         error: string;
    }
 }
