@@ -1,3 +1,4 @@
+import { JobRoles } from '../model/JobRoles';
 import { JobRole } from '../model/JobRole';
 import { JobRoleRequest } from '../model/JobRoleRequest';
 import { API_BASE_URL } from '../config';
@@ -7,7 +8,7 @@ import { CreateJobRoleValidator } from '../validator/CreateJobRoleValidator';
 export class JobRoleService {
     public API_URL: string = API_BASE_URL;
     createValidator: CreateJobRoleValidator = new CreateJobRoleValidator();
-    async getJobRoles(token: string): Promise<JobRole[]> {
+    async getJobRoles(token: string): Promise<JobRoles[]> {
 
         try {
             const headers = { 'Authorization': token };
@@ -43,6 +44,25 @@ export class JobRoleService {
             return null;
         }
 
+    }
+
+    async getJobRoleById(id: number, token: string): Promise<JobRole[]> {
+
+        try {
+            const headers = { 'Authorization': token };
+            const response = await axios.get(this.API_URL + `/job-roles/${id}`, { headers });
+            return response.data;
+        } catch (e) {
+            if (e.response.status == 500) {
+                throw new Error('Could not get Job Role');
+            }
+
+            if (e.response.status == 404) {
+                throw new Error('Job Role does not exist');
+            }
+
+            return [];
+        }
     }
 
 }
