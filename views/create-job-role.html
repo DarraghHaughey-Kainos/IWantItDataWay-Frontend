@@ -28,7 +28,7 @@
                 </select>
                 <label for="sharePointLink">SharePoint Link:</label>
                 <input type="text" id="sharePointLink" name="sharePointLink" class="form-control"
-                    value='{{userData.sharePointLink}}' pattern="[^'\x22]+" required>
+                    value='{{userData.sharePointLink}}' pattern="^https?://(www\.)?kainos.sharepoint\.com\[0-9A-Za-z]*" pattern="[^'\x22]+" required>
                 <button type="submit" class="btn kainosBlueButton">Create Job Role</button>
             </form>
         </div>

@@ -50,6 +50,8 @@ module.exports = function(app: Application) {
         try {
             capability = await capabilityService.getAllCapabilities(req.session.token);
             band = await bandService.getAllBands(req.session.token);
+            data.jobRoleTitle = data.jobRoleTitle.trim()
+            data.sharePointLink = data.sharePointLink.trim()
             await jobRoleService.createJobRole(data, req.session.token);
             req.session.userData = undefined;
             res.redirect('/job-roles');
