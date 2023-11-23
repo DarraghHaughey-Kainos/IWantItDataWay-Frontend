@@ -1,6 +1,11 @@
 {% extends "_includes/layouts/base.html" %}
 {% block content %}
 <main class="container mt-4">
+    {% if errormessage %}
+        <div class="alert alert-danger" role="alert">
+            {{ errormessage }}
+        </div>
+    {% endif %}
        
     <section id="orders" class="">
         <h2>Job Roles</h2>

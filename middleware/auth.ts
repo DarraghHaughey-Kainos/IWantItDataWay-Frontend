@@ -48,6 +48,9 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
                 req.session.error = 'Page Requires Admin Permissions';
                 res.redirect('/error');
             }
+        } else {
+            req.session.error = 'Page Not Found';
+            res.redirect('/error');
         }
     }
 };

@@ -68,7 +68,7 @@ describe('JobRoleService', function () {
 
     describe('getJobRole', function () {
         it('should return job role from response', async () => {
-            const id: string = '1';
+            const id: number = 1;
             
             const mock = new MockAdapter(axios);
 
@@ -81,7 +81,7 @@ describe('JobRoleService', function () {
     });
     
         it('should throw exception when 500 error returned from axios', async () => {
-            const id: string = '1';
+            const id: number = 1;
 
             const mock = new MockAdapter(axios);
 
@@ -98,7 +98,7 @@ describe('JobRoleService', function () {
         });
 
         it('should throw exception when 404 error returned from axios', async () => {
-            const id: string = '2';
+            const id: number = 2;
 
             const mock = new MockAdapter(axios);
 
