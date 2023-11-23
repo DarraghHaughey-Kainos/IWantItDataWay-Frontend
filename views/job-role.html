@@ -23,22 +23,25 @@
 
         {% for role in jobRole %}
         
-        <div class="specListDiv">
-          <ul>
-                  {% if role.specificationText %}
-                      {% set specArray = role.specificationText.split('^') %}
-                      {% for specText in specArray %}
-                          {% if specText | length %}
-                              <li>{{ specText }}</li>
-                          {% endif %}
-                      {% endfor %}
-                  {% else %}
-                      <li>No specification available</li>
-                  {% endif %}
-              </ul>
-      </div>
-        
-        
+        <div class="specDiv">
+            <h4>Job Specification</h4>
+
+            <div class="specListDiv">
+                <ul>
+                        {% if role.specificationText %}
+                            {% set specArray = role.specificationText.split('^') %}
+                            {% for specText in specArray %}
+                                {% if specText | length %}
+                                    <li>{{ specText }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <li>No specification available</li>
+                        {% endif %}
+                    </ul>
+            </div>
+
+        </div>        
         {% endfor %}
 
         {% else %}
@@ -78,7 +81,7 @@
             <img class="d-block w-100" src="https://cdn.phenompeople.com/CareerConnectResources/prod/KAINGB/images/TalentCommunitybannerheader-1692277665879.png" alt="Third slide">
             <div class="carousel-caption d-none d-md-block text-center">
               <h5>View the role on Sharepoint:</h5>
-              <p><a href="{{ job.sharepointLink }}">Find out more</a></p>
+              <p><a href="{{ job.sharepointLink }}" class="btn kainosBlueButton">Find out more</a></p>
             </div>
           </div>
         </div>
