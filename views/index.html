@@ -1,14 +1,40 @@
 {% extends "_includes/layouts/base.html" %}
 {% block content %}
+<div class="index-image">
+    <img src="/images/IndexHeaderImage.png" alt="business lady walking through a city smiling at her phone">
+    <div class="overlay-text">
+        <h3>True partners change the world together</h3>
+        <p>We're on a mission to make people's lives better through technology.</p>
+    </div>
+</div>
 <main class="container mt-4">
     <div>
-        Home Page
-        <ul>
-            <li>
-                <a href="/job-roles">Job Roles</a>
-            </li>
-        </ul>
+        <div class="display-cards">
+            <div class="card">
+                <img src="/images/CardImage1.png" class="card-img-top" alt="lady looking at computer screen">
+                <div class="card-body">
+                    <h5 class="card-title">Job Roles</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam exercitationem
+                        temporibus culpa a cumque quisquam debitis quod atque iste quasi!</p>
+                    <a href="/job-roles" class="btn kainosBlueButton">Job Roles</a>
+                </div>
+            </div>
 
+            <div class="card">
+                <img src="/images/CardImage2.png" class="card-img-top" alt ="man smiling sitting sitting on step">
+                <div class="card-body">
+                    <h5 class="card-title">Find Out More</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam exercitationem
+                        temporibus culpa a cumque quisquam debitis quod atque iste quasi!</p>
+                    {% if (sessionValid) %}
+                    <a href="https://kainos.wd3.myworkdayjobs.com/en-US/Kainos" target="_blank" class="btn kainosBlueButton">Find out
+                        more</a>
+                    {% else %}
+                    <a href="/login" class="btn kainosBlueButton">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
         {% if (errorMessage is defined) %}
         <div class="alert alert-danger" role="alert">
             {{ errorMessage }}
