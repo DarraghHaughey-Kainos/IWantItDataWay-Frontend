@@ -56,4 +56,3 @@ require('./controller/AuthController')(app);
 
 app.use(authMiddleware);
 require('./controller/JobRoleController')(app);
-

@@ -1,0 +1,52 @@
+{% extends "_includes/layouts/base.html" %}
+{% block content %}
+<main class="container mt-4">
+       
+    <section id="orders" class="">
+
+        <h1>{{ jobRole[0].jobRoleTitle }}</h1>
+        {% if jobRole and jobRole.length > 0 %}
+
+        {% for role in jobRole %}
+        
+        <div class="specDiv">
+            <h4>Job Specification</h4>
+
+            <div class="specListDiv">
+                <ul>
+                        {% if role.specificationText %}
+                            {% set specArray = role.specificationText.split('^') %}
+                            {% for specText in specArray %}
+                                {% if specText | length %}
+                                    <li>{{ specText }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <li>No specification available</li>
+                        {% endif %}
+                    </ul>
+            </div>
+
+        </div>
+        
+        <div>
+            <a class="kainosBlueButton btn" href="{{ role.sharepointLink }}">Sharepoint Link</a>
+        </div>
+        <div>
+            <a class="kainosBlueButton btn" href="/job-roles">Back</a>
+        </div>
+        
+        {% endfor %}
+
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+            Role Not Found
+        </div>
+        <div>
+            <a href="/job-roles">Home</a>
+        </div>
+        {% endif %}
+    </section>
+
+</main>
+{% endblock %}

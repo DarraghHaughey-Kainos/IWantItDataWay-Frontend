@@ -1,15 +1,16 @@
 import { NextFunction, Request, Response } from 'express';
 
 const noPermissionEndpointList = ['/', '/login', '/register'];
-const viewEndpointList = ['/job-roles'];
+const viewEndpointList = ['/job-roles', '/job-roles/*'];
 const adminEndpointList = ['/hello-world'];
 
 module.exports = function (req: Request, res: Response, next: NextFunction) {
 
     let routeSecureCheck = false;
     req.session.error = undefined;
+    const urlToCheck = req.url.replace(/[0-9]/g, '*').replace(/\*+/g, '*');
 
-    if (!noPermissionEndpointList.includes(req.url)) {
+    if (!noPermissionEndpointList.includes(urlToCheck)) {
         if (req.session.token == undefined) {
             res.redirect('/login');
         } else {
@@ -25,7 +26,7 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
         const decodedValue = JSON.parse(Buffer.from(base64String, 'base64').toString('ascii'));
         const userRole: string = decodedValue['role'];
 
-        if (viewEndpointList.includes(req.url)) {
+        if (viewEndpointList.includes(urlToCheck)) {
             // View Permission Required.
 
             // Check Permission on token
@@ -36,7 +37,7 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
                 req.session.error = 'Page Requires View or Admin Permissions';
                 res.redirect('/error');
             }
-        } else if (adminEndpointList.includes(req.url)) {
+        } else if (adminEndpointList.includes(urlToCheck)) {
             // Admin Permission Required.
 
             // Check Permission on token
@@ -47,6 +48,9 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
                 req.session.error = 'Page Requires Admin Permissions';
                 res.redirect('/error');
             }
+        } else {
+            req.session.error = 'Page Not Found';
+            res.redirect('/error');
         }
     }
 };
