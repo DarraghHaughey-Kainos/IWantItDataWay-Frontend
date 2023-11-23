@@ -147,3 +147,15 @@ div.carousel-caption h5 {
 .overlay-text p {
   font-size: small;
 }
+
+.kainosBlueButton {
+  margin-top: 10px;
+  background-color: rgb(40, 53, 131);
+  color: white;
+}
+ 
+.kainosBlueButton:hover {
+  background-color: white;
+  color: rgb(40, 53, 131);
+  border-color: rgb(40, 53, 131);
+}
