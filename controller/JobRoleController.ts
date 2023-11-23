@@ -26,7 +26,7 @@ module.exports = function(app: Application) {
 
         try {
             data = await jobRoleService.getJobRoleById(id, req.session.token);
-            
+
         } catch (e) {
             console.error(e);
         }
@@ -34,17 +34,15 @@ module.exports = function(app: Application) {
     });
 
     app.post('/job-roles/delete/:id',async (req: Request, res: Response) => {
-        const id: string = req.params.id;
-        let data: JobRoles[] = [];
+        const id: number = Number(req.params.id);
+        let data: JobRole[];
 
         try {
-            data = await jobRoleService.getJobRoles(req.session.token);
+            data = await jobRoleService.getJobRoleById(id, req.session.token);
             await jobRoleService.deleteJobRoleById(req.session.token, id);
-            data = await jobRoleService.getJobRoles(req.session.token);
-            res.render('job-roles', { jobRoles: data, title: 'Job Roles', successMessage: id + ' : Has Been Removed Successfully'});
+            res.redirect('/job-roles');
         } catch(e) {
-            console.error(e.message);
-            res.render('job-roles', { jobRoles: data, title: 'Job Roles', errorMessage: e.message });
+            res.render('job-roles/' + id, { jobRoles: data, title: 'Job Role', errorMessage: e.message });
         }
     });
 };

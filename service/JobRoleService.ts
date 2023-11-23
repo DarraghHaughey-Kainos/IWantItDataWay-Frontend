@@ -39,14 +39,13 @@ export class JobRoleService {
         }
     }
 
-    async deleteJobRoleById(token: string, id: string): Promise<Response> {
+    async deleteJobRoleById(token: string, id: number): Promise<Response> {
 
         try {
             const headers = { 'Authorization': token };
             const response = await axios.delete(this.API_URL+'/job-roles/' + id, { headers });
             return response.data;
         } catch (e) {
-            console.error(e.response.status);
             if (e.response.status == 500) {
                 throw new Error('Could Not Get Job Roles');
             } else if (e.response.status == 403) {

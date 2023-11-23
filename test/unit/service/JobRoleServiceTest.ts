@@ -118,11 +118,11 @@ describe('JobRoleService', function () {
 
 
 describe('createJobRole', function () {
-    it('should return response 202 when able to delete job role.', async () => {
-        const id: string = '1';
+    it('should return response 204 when able to delete job role.', async () => {
+        const id: number = 1;
         const fakeResponse = {
             message: 'Job Role with ' + id + ' has been removed!',
-            status: 202,
+            status: 204,
         };
 
         const headers = { 'Authorization': '' };
@@ -130,16 +130,15 @@ describe('createJobRole', function () {
 
         const mock = new MockAdapter(axios);
 
-        mock.onDelete(jobRoleService.API_URL + '/job-roles/' + id, { headers }).reply(202, fakeResponse);
+        mock.onDelete(jobRoleService.API_URL + '/job-roles/' + id, { headers }).reply(204, fakeResponse);
 
-        const results: any = await jobRoleService.deleteJobRoleById('', id);
+        const results = await jobRoleService.deleteJobRoleById('', id);
 
-        expect(results.message).to.deep.equal(fakeResponse.message);
         expect(results.status).to.deep.equal(fakeResponse.status);
     });
 
     it('should return response 500 when server error occurs.', async () => {
-        const id: string = '1';
+        const id: number = 1;
         let error: string;
 
         const headers = { 'Authorization': '' };
@@ -156,7 +155,7 @@ describe('createJobRole', function () {
     });
 
     it('should return response 403 when user is unauthorised to perform action.', async () => {
-        const id: string = '1';
+        const id: number = 1;
         let error: string;
 
         const headers = { 'Authorization': '' };
@@ -173,7 +172,7 @@ describe('createJobRole', function () {
     });
 
     it('should return response 404 when job role id does not exist.', async () => {
-        const id: string = '-1';
+        const id: number = -1;
         let error: string;
 
         const headers = { 'Authorization': '' };
