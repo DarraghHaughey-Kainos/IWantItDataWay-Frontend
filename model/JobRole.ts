@@ -6,7 +6,7 @@ export class JobRole {
     sharepointLink: string;
     specificationText: string;
     bandName: string;
-    jobRoleResponsibility: String;
+    jobRoleResponsibility: string;
 
     constructor(jobRoleId: number, jobRoleTitle: string, capabilityName: string, specificationText: string, sharepointLink: string, bandName: string, jobRoleResponsibility: string) {
         this.jobRoleId = jobRoleId;

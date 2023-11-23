@@ -28,7 +28,7 @@ module.exports = function(app: Application) {
             data = await jobRoleService.getJobRoleById(id, req.session.token);
         } catch (e) {
             console.error(e);
-        }
+        }        
         res.render('job-role', { jobRole: data, title: 'Job Role' });
     });
 };
