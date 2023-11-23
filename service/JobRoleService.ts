@@ -21,7 +21,6 @@ export class JobRoleService {
     }
 
     async getJobRoleById(id: number, token: string): Promise<JobRole[]> {
-        console.log('I am in the service');
 
         try {
             const headers = { 'Authorization': token };
